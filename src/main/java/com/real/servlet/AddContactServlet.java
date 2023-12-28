@@ -26,10 +26,11 @@ public class AddContactServlet extends HttpServlet {
 	        String phone = request.getParameter("phone");
 	        String subject = request.getParameter("subject");
 	        String message = request.getParameter("message");
+	        String date = request.getParameter("date");
 	      
 	       
 	        AddContactServiceimpl add =new AddContactServiceimpl();
-	        status=add.addcontact(name,email, phone,subject,message);
+	        status=add.addcontact(name,email, phone,subject,message,date);
 	  	  
 	    		   RequestDispatcher rd = request.getRequestDispatcher("contact.jsp?message=" + status);
 	       rd.forward(request, response);

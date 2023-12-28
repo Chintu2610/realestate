@@ -5,7 +5,7 @@ table {
         }
 
         th, td {
-            border: 1px solid black; /* Set black solid border for th and td */
+           /* border: 1px solid black;*/ /* Set black solid border for th and td */
             padding: 8px;
             text-align: left;
         }

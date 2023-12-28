@@ -18,18 +18,17 @@ public class AddSoldPropertyimpl implements AddSoldProperty {
 
         try {
             ps = con.prepareStatement(
-                    "INSERT INTO soldproperty (propertyid, propertystatus, soldstatus, soldprice, solddate, image) VALUES (?, ?, ?, ?, ?, ?)");
+                    "INSERT INTO soldproperty (propertyid, propertystatus, soldstatus, soldprice, solddate, image) VALUES (?, ?, ?, ?, curdate(), ?)");
             ps.setString(1, propertyid);
             ps.setString(2, propertystatus);
             ps.setString(3, soldstatus);
             ps.setString(4, soldprice);
-            ps.setString(5, solddate);
-            ps.setString(6, image);
+            ps.setString(5, image);
 
             int rowsAffected = ps.executeUpdate();
 
             if (rowsAffected > 0) {
-                result = "Sold Property Added Successfully!";
+                result = "SoldProperty Added Successfully!";
             }
         } catch (SQLException e) {
             result = "Error: " + e.getMessage();

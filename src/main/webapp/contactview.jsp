@@ -94,8 +94,9 @@ if (roleIDString == null) {
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
-                                            <th>Subject</th>
+                                            <th>Type</th>
                                             <th>Message</th>
+                                            <th>Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -115,8 +116,9 @@ if (roleIDString == null) {
                                             <td><%= contact.getPhone() %></td>
                                             <td><%= contact.getSubject() %></td>
                                             <td><%= contact.getMessage() %></td>
+                                            <td><%= contact.getDate() %></td>
                                             <td>
-                                                <a href="contactdelete.jsp?id=<%= contact.getCid() %>">Delete</a>
+                                                <a href="contactdelete.jsp?id=<%= contact.getCid() %>">contacted</a>
                                             </td>
                                         </tr>
                                         <%
@@ -142,8 +144,8 @@ if (roleIDString == null) {
         <!-- jQuery -->
         <script src="js/jquery-3.2.1.min.js"></script>
         <!-- Custom JS -->
-        <script src="js/script.js"></script>
-
+       <!-- <script src="js/script.js"></script>
+		-->
     </body>
 
 </html>

@@ -108,7 +108,7 @@
                                             // Close the previous module's <ul>
                         %>
                                         </ul>
-                                    </li>
+                                    <!-- </li> -->
                         <%
                                         }
                         %>
@@ -143,12 +143,14 @@
                                 e.printStackTrace();
                             }
                         %>
-                        </ul>
-                        </li>
+                       <!--  </ul>
+                        </li> -->
                         </div>
                 </div>
             </div>
         </div>
+        <% }
+%>
    
 
     <!-- jQuery -->
@@ -192,5 +194,3 @@
 </body>
 
 </html>
-<% }
-%>

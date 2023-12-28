@@ -111,8 +111,9 @@
   
     
     <!-- Custom JS -->
+     <!--
     <script src="js/script.js"></script>
-
+	 -->
     <!-- Script for DataTable -->
     <script>
         $(document).ready(function () {

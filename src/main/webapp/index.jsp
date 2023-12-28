@@ -66,6 +66,10 @@ if (roleIDString == null) {
         top: 0; /* Center vertically */
         left: 0; /* Center horizontally */
     }
+    p {
+            text-align: justify; /* You can use other values like 'left', 'center', 'right', or 'justify' */
+             white-space: normal;
+        }
 </style>
 
 </head>
@@ -148,31 +152,35 @@ if (roleIDString == null) {
                     <div class="row">
                        <div class="col-lg-3 col-md-6">
 							    <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
-							       <div class="row">
+							       <!-- <div class="row">
                             <div class="col-md-12">
                                 <div id="single-property" style="width:1200px; height:700px; margin:30px auto 50px;"> 
-                                    <!-- Slide 1-->
+                                    Slide 1
                                     <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/16.jpg" class="ls-bg" alt="" /> </div>
                                     
-                                    <!-- Slide 2-->
+                                    Slide 2
                                     <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/17.jpg" class="ls-bg" alt="" /> </div>
                                     
-                                    <!-- Slide 3-->
+                                    Slide 3
                                     <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/3.jpg" class="ls-bg" alt="" /> </div>
 									
-									<!-- Slide 4-->
+									Slide 4
 									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/1.jpg" class="ls-bg" alt="" /> </div>
 									
-									<!-- Slide 5-->
+									Slide 5
 									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/20.jpg" class="ls-bg" alt="" /> </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+                       <div style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+							  <img src="admin/property/3.jpg" alt="Selling Service Image" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+
 							        <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="contact.jsp">Selling Service</a></h5>
 							        <p>Elevate your business with our top-tier services! From cutting-edge digital solutions to unparalleled consultancy,
-							         we deliver excellence. Our expert team ensures seamless integration and innovation, driving your success. 
-							         Experience the difference with our premium services
-							         — where your goals become our achievements. Transform possibilities into realities with us!</p>
+							         we deliver excellence. Ourteam ensures seamless integration and innovation. 
+							         Experience the difference with our premium services where your goals become our achievements.
+							          Transform possibilities into realities with us!</p>
 							    </div>
 							</div>
 
@@ -198,12 +206,15 @@ if (roleIDString == null) {
                                 </div>
                             </div>
                         </div> -->
-                        <img src="admin/property/11.jpg" alt="Rental Service Image" class="img-fluid">
+                        <div style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+							  <img src="admin/property/13.jpg" alt="Rental Service Image" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+
                                 <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="contact.jsp">Rental Service</a></h5>
-                                <p>Unlock convenience with our rental services! Whether it's equipment, vehicles, or event essentials,
+                                <p>The convenience with our rental services! Whether equipment, vehicles, or event essentials,
                                  we provide hassle-free rentals tailored to your needs. Enjoy flexibility, reliability, and top-notch quality.
-                                  Elevate your experience with our vast inventory and customer-centric approach.
-                                 Your satisfaction is our priority, making every rental a seamless experience.</p>
+                                  Elevate your experience inventory and customer-centric approach.
+                                 satisfaction is our priority, making every rental a seamless experience.</p>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
@@ -228,8 +239,11 @@ if (roleIDString == null) {
                                 </div>
                             </div>
                         </div> -->
-                                <img src="admin/property/13.jpg" alt="property listing Image" class="img-fluid">
-                                <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="propertydetail.jsp">Property Listing</a></h5>
+                                <div style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+								  <img src="admin/property/16.jpg" alt="Property Listing Image" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 50%;">
+								</div>
+
+                                <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="propertyview.jsp">Property Listing</a></h5>
                                 <p>Discover your ideal home through our property listings. We provide a diverse selection of residences, 
                                 from cozy apartments to spacious homes. Our user-friendly platform ensures a seamless search experience,
                                  offering detailed information and images to help you find the perfect property. 
@@ -239,11 +253,13 @@ if (roleIDString == null) {
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
-								<img src="admin/property/14.jpg" alt="Legal Service Image" class="img-fluid">
+								 <div style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+								  <img src="admin/property/14.jpg" alt="Property Listing Image" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 50%;">
+								</div>
                                 <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Legal Investment</a></h5>
-                                <p>Explore secure and legal investment opportunities with us. Our transparent investment details provide
-                                 comprehensive information on potential returns, associated risks, and legal frameworks. 
-                                 We prioritize your financial safety and growth, ensuring that you make well-informed decisions in a trustworthy investment environment.
+                                <p>Explore secure and legal investment opportunities with us. Our transparent investment  provide
+                                 comprehensive information returns, associated risks, and legal frameworks. 
+                                 We prioritize financial safety and growth, ensuring  make well-informed decisions in a trustworthy investment environment.
                                   Invest confidently for a prosperous future.
                                   </p>
                             </div>
@@ -266,9 +282,7 @@ if (roleIDString == null) {
                         <div class="tab-content mt-4" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home">
                                 <div class="row">
-								
-									
-								
+							
                                     <div class="col-md-6 col-lg-4">
                                         <div class="featured-thumb hover-zoomer mb-4">
                                             <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/20.jpg" alt="pimage">
@@ -280,20 +294,8 @@ if (roleIDString == null) {
                                                 <div class="p-3">
                                                     <h5 class="text-secondary hover-text-primary mb-2 text-capitalize"><a href="propertydetail.jsp?pid=<?jsp echo $row['0'];?>"><?jsp echo $row['1'];?></a></h5>
                                                     <span class="location text-capitalize"><i class="fas fa-map-marker-alt text-primary"></i> <?jsp echo $row['14'];?></span> </div>
-                                                <div class="bg-gray quantity px-4 pt-4">
-                                                    <ul>
-                                                        <li><span><?jsp echo $row['12'];?></span> Sqft</li>
-                                                        <li><span><?jsp echo $row['6'];?></span> Beds</li>
-                                                        <li><span><?jsp echo $row['7'];?></span> Baths</li>
-                                                        <li><span><?jsp echo $row['9'];?></span> Kitchen</li>
-                                                        <li><span><?jsp echo $row['8'];?></span> Balcony</li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                <div class="p-4 d-inline-block w-100">
-                                                    <div class="float-left text-capitalize"><i class="fas fa-user text-primary mr-1"></i>By : Nazma</div>
-                                                    <div class="float-right"><i class="far fa-calendar-alt text-primary mr-1"></i> 6 Months Ago</div>
-                                                </div>
+                                                
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -307,40 +309,42 @@ if (roleIDString == null) {
 		<!--	Recent Properties  -->
         
         <!--	Why Choose Us -->
-        <div class="full-row living bg-one overlay-secondary-half" style="background-image: url('images/haddyliving.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+       
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-6">
-                        <div class="living-list pr-4">
-                            <h3 class="pb-4 mb-3 text-black	">Why Choose Us</h3>
-                            <ul>
-                                <li class="mb-4 text-black d-flex"> 
-									<i class="flaticon-reward flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
-									<div class="pl-2">
-										<h5 class="mb-3">Experience Quality</h5>
-										<p>Ad non vivamus Elementum eget fringilla venenatis quisque, maecenas adipiscing aliquet justo. Libero. Gravida. Sapien, dolor nostra sem. Rutrum conubia inceptos egestas dolor class.</p>
-									</div>
-                                </li>
-                                <li class="mb-4 text-black d-flex"> 
-									<i class="flaticon-real-estate flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
-									<div class="pl-2">
-										<h5 class="mb-3">Experience Quality</h5>
-										<p>Ad non vivamus Elementum eget fringilla venenatis quisque, maecenas adipiscing aliquet justo. Libero. Gravida. Sapien, dolor nostra sem. Rutrum conubia inceptos egestas dolor class.</p>
-									</div>
-                                </li>
-                                <li class="mb-4 text-black d-flex"> 
-									<i class="flaticon-seller flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
-									<div class="pl-2">
-										<h5 class="mb-3">Experience Quality</h5>
-										<p>Ad non vivamus Elementum eget fringilla venenatis quisque, maecenas adipiscing aliquet justo. Libero. Gravida. Sapien, dolor nostra sem. Rutrum conubia inceptos egestas dolor class.</p>
-									</div>
-                                </li>
-                            </ul>
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class="living-list pr-4">
+               <div class="col-md-12 text-center">
+        <h2 class="pb-4 mb-3 text-black">Why Choose Us</h2>
+      </div>
+                <ul>
+                    <li class="mb-4 text-black d-flex"> 
+                        <i class="flaticon-reward flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
+                        <div class="pl-2">
+                            <h5 class="mb-3">Experience Quality</h5>
+                            <p>Ad non vivamus Elementum eget fringilla venenatis quisque, maecenas adipiscing aliquet justo. Libero. Gravida. Sapien, dolor nostra sem. Rutrum conubia inceptos egestas dolor class.</p>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                    <li class="mb-4 text-black d-flex"> 
+                        <i class="flaticon-real-estate flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
+                        <div class="pl-2">
+                            <h5 class="mb-3">Quality of Service</h5>
+                            <p>Emphasizing a commitment to providing high-quality service to clients, whether they are buying, selling, or renting properties.</p>
+                        </div>
+                    </li>
+                   
+                </ul>
             </div>
         </div>
+        <!-- Add the image here with the actual URL -->
+        <div class="col-md-12 col-lg-6">
+            <img src="images/haddyliving.jpg" alt="Your Image Alt Text" class="img-fluid" style="max-height: 500px; max-width: 500px;">
+
+        </div>
+    </div>
+</div>
+
+        
 		<!--	why choose us -->
 		
 		<!--	How it work -->
@@ -419,7 +423,7 @@ if (roleIDString == null) {
                     <div class="count wow text-center mb-sm-50" data-wow-duration="300ms">
                         <i class="flaticon-house flat-large text-white" aria-hidden="true"></i>
                         <div class="property-image-container">
-        <img src="images/video.jpg" alt="Rental Service Image" class="img-fluid property-image" style="max-width: 80%; height: auto;">
+                  <img src="images/video.jpg" alt="Rental Service Image" class="img-fluid property-image" style="max-width: 80%; height: auto;">
 
                         </div>
                         <div class="text-orange h4">Rent Property Available</div>

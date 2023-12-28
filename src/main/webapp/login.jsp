@@ -33,22 +33,50 @@
 <!--	Title   -->
 <title>Homex - Real Estate Template</title>
  <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa; /* Add your desired background color */
-        }
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f8f9fa; /* Add your desired background color */
+    }
 
-        .loginbox {
-            max-width: 400px; /* Adjust the max-width as needed */
-            width: 100%;
-            text-align: center;
-        }
-       
-    </style>
+    .loginbox {
+        max-width: 400px; /* Adjust the max-width as needed */
+        width: 100%;
+        text-align: center;
+        margin-top: 50px; /* Add margin to center the login box */
+    }
+
+    /* Adjustments for the login form */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    /* Make the login button the same width as the input fields */
+    .account-btn {
+        width: 100%;
+        font-size: 16px; /* Adjust the font size as needed */
+    }
+
+    /* Increase the size of the input fields */
+    .form-control {
+        height: 50px; /* Adjust the height as needed */
+        font-size: 16px; /* Adjust the font size as needed */
+    }
+
+    /* Center the forgot password link */
+    .pt-2 {
+        text-align: center;
+    }
+
+    /* Style adjustments for the alert messages */
+    .alert {
+        margin-bottom: 10px;
+    }
+</style>
+
 </head>
 <body>
 

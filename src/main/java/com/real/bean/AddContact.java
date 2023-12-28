@@ -6,7 +6,7 @@ public class AddContact {
 	private String name;
 	private String email;
 	private String phone;
-	
+	private String date;
 	private String subject;
 	private String message;
 	
@@ -40,6 +40,12 @@ public class AddContact {
 	}
 	public void setSubject(String subject) {
 		this.subject = subject;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	public String getMessage() {
 		return message;

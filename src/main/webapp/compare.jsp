@@ -5,12 +5,26 @@
 
 <%
     // Retrieve the selected property IDs from the request parameter
+    if(request.getParameter("selectedPropertyIds") == null) {
+        response.sendRedirect("propertyview.jsp");
+        return;  // Terminate the execution after redirect
+    }
     String selectedPropertyIdsParam = request.getParameter("selectedPropertyIds");
     String[] selectedPropertyIds = selectedPropertyIdsParam.split(",");
 
     List<AddProperty> selectedProperties = new PropertyDAO().getPropertiesByIds(selectedPropertyIds);
+ // Check the number of selected properties
+    if (selectedProperties.size() < 2) {
 %>
+        <script>
+            alert("Select at least 2 properties to compare.");
+            window.location.href = "propertyview.jsp"; // Redirect to propertyview.jsp
+        </script>
+<%
+        return;  // Terminate the execution after displaying the alert
+    }
 
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -158,7 +172,9 @@
     <script src="js/jquery.slimscroll.min.js"></script>
 
     <!-- Custom JS -->
+    <!--
     <script src="js/script.js"></script>
+    -->
 </body>
 
 </html>

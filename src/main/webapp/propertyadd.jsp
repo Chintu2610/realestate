@@ -205,28 +205,12 @@ if (roleIDString == null) {
 									</div>
 								</div>
 									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
 											<label>Is_Highlighted <span class="text-danger">*</span></label>
-												<input name="ishighlight" class="form-control">
-										</div>
+									    <select name="ishighlight" class="form-control">
+									        <option value="1">Yes</option>
+									        <option value="0">No</option>
+									    </select>
 									</div>
-											<!-- <div class="col-sm-6 col-md-3">
-											    <div class="form-group">
-											        <label>Highlights</label>
-											        <div class="highlights-container">
-											            Initial highlight item
-											            <div class="highlight-item">
-											                <div class="button-row">
-											                    Delete button on the left side
-											                    <div class="delete-button" onclick="deleteHighlight(this)" disabled>-</div>
-											                    Add button on the right side
-											                    <div class="add-button" onclick="addHighlight()">+</div>
-											                </div>
-											                <input name="highlights" class="form-control">
-											            </div>
-											        </div>
-											    </div>
-								 			</div> -->
 							            <div class="col-md-12 form-group">
 								            <label for="image">Image</label>
 								            <input type="file" placeholder="Select Image" name="image" class="form-control" id="image" required>
@@ -405,8 +389,9 @@ if (roleIDString == null) {
 		<script src="js/bootstrap-datetimepicker.min.js"></script>
 		
 		<!-- Custom JS -->
+		<!--
 		<script src="js/app.js"></script>
-				
+		 -->
 				<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   
         </form>

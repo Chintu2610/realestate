@@ -226,7 +226,9 @@ if (roleIDString == null) {
 <!-- jQuery -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <!-- Custom JS -->
+    <!--
     <script src="js/script.js"></script>
+    -->
 </body>
 </html>
 

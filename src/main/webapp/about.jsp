@@ -108,77 +108,43 @@ if (roleIDString == null) {
         <div class="full-row">
             <div class="container">
                 
-				<div class="row">
-                    <div class="col-md-12 col-lg-12">
-                        <h3 class="double-down-line-left text-secondary position-relative pb-4 mb-4"><b>List</b></h3>
-                    </div>
-                </div>
+				
                 <div class="row about-company">
                     <div class="col-md-12 col-lg-7">
                         <div class="about-content">
                           <div class="row">
 						<div class="col-sm-12">
 							<div class="card">
-								<div class="card-header">
-									<h4 class="card-title">List Of About</h4>
-									
-								</div>
 								<div class="card-body">
-
 									<div class="table-responsive">
-										<table class="table table-stripped">
-											<thead>
-												<tr>
-													<th>Id</th>
-													<th>Title</th>
-													<th>Content</th>
-													
-												</tr>
-											</thead>
-											
-											 <tbody>
-												    <%
-												        int start = 0;
-												        int limit = 25;
-												        String usernameFilter = request.getParameter("username");
-												        String idFilter = request.getParameter("id");
-												
-												        List<AddAbout> resultSet;
-												
-												        String whereClause = "";
-												
-												        if (usernameFilter != null && !usernameFilter.isEmpty()) {
-												            whereClause = "username = '" + usernameFilter + "'";
-												        }
-												
-												        if (idFilter != null && !idFilter.isEmpty()) {
-												            if (!whereClause.isEmpty()) {
-												                whereClause += " AND ";
-												            }
-												            whereClause += "id = '" + idFilter + "'";
-												        }
-												
-												        AboutDAO aboutDao = new AboutDAO();
-												
-												        if (!whereClause.isEmpty()) {
-												            resultSet = aboutDao.getAllAbouts();
-												        } else {
-												            resultSet = aboutDao.getAllAbouts();
-												        }
-												
-												        for (int i = 0; i < resultSet.size(); i++) {
-												            AddAbout about = resultSet.get(i);
-												    %>
-												    <tr>
-												        <td><%= about.getId() %></td>
-												        <td><%= about.getTitle() %></td>
-												        <td><%= about.getContent() %></td>
-												    </tr>
-												    <%
-												        }
-												    %>
-												</tbody> 
-										</table>
+										
+								<div class="about-content">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h2 class="mb-3 text-black">Our Company</h2>
+            <img src="images/kumar.jpg" alt="Mission Image" class="img-fluid mb-3">
+            <p>
+                Meet our exceptional real estate team at WebLabs RealEstate Company.
+                Committed to excellence, our diverse professionals bring extensive expertise and a client-centric approach.
+                With a passion for innovation and community involvement, we're dedicated to making your real estate journey seamless and successful. 
+                Contact us to experience outstanding service and achieve your real estate goals.
+            </p>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h2 class="mb-3 text-black">Our Team Members</h2>
+            <img src="images/sharath.jpg" alt="Team Image" class="img-fluid mb-3" style="width: 300px; height: 260px;">
+
+            <p>
+                Discover the heart of WebLabs RealEstate Company through our exceptional team members.
+                Each member embodies a passion for real estate, offering unique skills and dedication.
+                With a commitment to client success, innovation, and community engagement, our team is your partner in achieving your real estate goals.
+                Meet the faces shaping exceptional experiences.
+            </p>
+        </div>
+    </div>
+</div>
+				
 									</div>
 								</div>
 							</div>
@@ -231,7 +197,7 @@ if (roleIDString == null) {
 <!-- jQuery -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <!-- Custom JS -->
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script>-->
 </body>
 
 </html>

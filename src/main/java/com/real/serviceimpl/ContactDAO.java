@@ -19,7 +19,7 @@ public class ContactDAO {
     public List<AddContact> getAllContacts() {
         List<AddContact> contactList = new ArrayList<>();
         try (Connection connection = DBUtil.provideConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, email, phone, subject, message FROM contact");
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, email, phone, subject, message,date FROM contact");
              ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
@@ -29,6 +29,7 @@ public class ContactDAO {
                 contact.setPhone(resultSet.getString("phone"));
                 contact.setSubject(resultSet.getString("subject"));
                 contact.setMessage(resultSet.getString("message"));
+                contact.setDate(resultSet.getString("date"));
                 contactList.add(contact);
             }
 
@@ -42,7 +43,7 @@ public class ContactDAO {
     public AddContact getContactById(String contactId) {
         AddContact contact = null;
         try (Connection connection = DBUtil.provideConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, email, phone, subject, message FROM contact WHERE cid = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, email, phone, subject, message,date FROM contact WHERE cid = ?")) {
 
             preparedStatement.setString(1, contactId);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -53,6 +54,7 @@ public class ContactDAO {
                     contact.setPhone(resultSet.getString("phone"));
                     contact.setSubject(resultSet.getString("subject"));
                     contact.setMessage(resultSet.getString("message"));
+                    contact.setDate(resultSet.getString("date"));
                 }
             }
 
@@ -64,13 +66,14 @@ public class ContactDAO {
 
     public boolean addContact(AddContact contact) {
         try (Connection connection = DBUtil.provideConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO contact (name, email, phone, subject, message) VALUES (?, ?, ?, ?, ?)")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO contact (name, email, phone, subject, message,date) VALUES (?, ?, ?, ?, ?, ?)")) {
 
             preparedStatement.setString(1, contact.getName());
             preparedStatement.setString(2, contact.getEmail());
             preparedStatement.setString(3, contact.getPhone());
             preparedStatement.setString(4, contact.getSubject());
             preparedStatement.setString(5, contact.getMessage());
+            preparedStatement.setString(6, contact.getDate());
 
             int rowsInserted = preparedStatement.executeUpdate();
             return rowsInserted > 0;
@@ -90,6 +93,7 @@ public class ContactDAO {
             preparedStatement.setString(3, contact.getPhone());
             preparedStatement.setString(4, contact.getSubject());
             preparedStatement.setString(5, contact.getMessage());
+            preparedStatement.setString(6, contact.getDate());
             // Remove the line below since "cid" is removed
             // preparedStatement.setString(6, contact.getCid());
 

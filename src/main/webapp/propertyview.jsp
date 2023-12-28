@@ -47,31 +47,34 @@ if (roleIDString == null) {
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
     
-    
-    
 </head>
 
 <body>
     <!-- Main Wrapper -->
     <div class="main-wrapper">
-        <!-- Header start -->
-        <jsp:include page="header.jsp" />
-        <!-- Header end -->
-
-        <!-- Sidebar start -->
+    
+         <!--	Header start  -->
+		<jsp:include page="header.jsp" />
+        <!--	Header end  -->
+        
+       <!--	sidebar start  -->
         <jsp:include page="sidebar.jsp" />
-        <!-- Sidebar end -->
-
+		 <!--	sidebar end  -->
+		 
         <!-- Page Wrapper -->
+        
         <div class="page-wrapper">
+        
+        
             <div class="content container-fluid">
                 <!-- Page Header -->
+                
                 <div class="page-header">
                     <div class="row">
                        <div class="col">
 							    <h3 class="page-title" style="font-size: 30px;">Property View and Compare</h3>
 							    <ul class="breadcrumb">
-							        <li class="breadcrumb-item"><a href="dashboard.jsp">Dashboard</a></li>
+							        <li class="breadcrumb-item"><a href="index.jsp">Index</a></li>
 							        <li class="breadcrumb-item active">Property</li>
 							    </ul>
 							</div>
@@ -114,7 +117,7 @@ if (roleIDString == null) {
                         for (int i = 0; i < resultSet.size(); i++) {
                             AddProperty property = resultSet.get(i);
                             
-                     	       // Start a new row after displaying four records
+                     	     
                             if (count > 0 && count % 4 == 0) {
                     %>
                 </div>	
@@ -132,7 +135,7 @@ if (roleIDString == null) {
               <% System.out.println("Image URL for Property " + property.getPropertyId() + ": " + property.getImageUrl(request)); %>
                         <img src="<%= property.getImageUrl(request) %>" alt="Property Image" class="img-fluid">
       
-                       <table class="table" style="width: 100%; max-width: 300px; margin-bottom: 10px;">
+                       <table class="table" style="width: 50%; max-width: 100px; margin-bottom: 5px;">
 						    <tr><td style="padding: 5px;"><strong>P ID:</strong></td><td><%= property.getPropertyId() %></td></tr>
 						    <tr><td style="padding: 5px;"><strong>Name:</strong></td><td><%= property.getPname() %></td></tr>
 						    <tr><td style="padding: 5px;"><strong>Mobile:</strong></td><td><%= property.getPmobile() %></td></tr>
@@ -161,7 +164,6 @@ if (roleIDString == null) {
                             </div> <!-- end card body-->
                         </div> <!-- end card -->
                     </div><!-- end col-->
-
                     <% count++;
                         } // End of the for loop
                     } catch (Exception e) {
@@ -171,11 +173,14 @@ if (roleIDString == null) {
                 </div>
                 <!-- end row-->
             </div>
-                        <button onclick="compareSelectedProperties()">Compare</button>
-            
+                       <button onclick="compareSelectedProperties()" style="display: block; margin: auto;">Compare</button>
+
         </div>
     </div>
-
+    <%
+    } // End of the if-else block
+%>
+	
                 <script>
 				    function compareSelectedProperties() {
 				        // Get all the selected checkboxes
@@ -221,11 +226,10 @@ if (roleIDString == null) {
     <script src="js/buttons.print.min.js"></script>
 
     <!-- Custom JS -->
+    <!--
     <script src="js/script.js"></script>
+    -->
 </body>
 
 
 </html>
-<%
-    } // End of the if-else block
-%>

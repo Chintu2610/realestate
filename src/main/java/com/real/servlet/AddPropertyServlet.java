@@ -47,7 +47,7 @@ public class AddPropertyServlet extends HttpServlet {
             Connection conn = DBUtil.provideConnection();
             if (conn != null) {
                 PreparedStatement propertyStatement = conn.prepareStatement(
-                        "INSERT INTO property (name, mobile,Status, type, age, dimensions, city, highlights, amenities, price, listed_date, is_highlighted,image) " +
+                        "INSERT INTO property (pname, pmobile,Status, type, age, dimensions, city, highlights, amenities, price, listed_date, is_highlighted,image) " +
                                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)",
                         PreparedStatement.RETURN_GENERATED_KEYS
                 );

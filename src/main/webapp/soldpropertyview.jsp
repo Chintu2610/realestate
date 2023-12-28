@@ -66,13 +66,11 @@
 							                    <thead>
 							                        <tr>
 							                            <th>Property ID</th>
-							                            <th>Seller</th>
-							                            <th>Status</th>
-							                            <th>Type</th>
-							                            <th>City</th>
-							                            <th>Price</th>
+							                            <th>propertystatus</th>
+							                            <th>soldstatus</th>
+							                            <th>soldprice</th>
 							                            <th>Sold Date</th>
-							                            <th>Image</th>
+							                           <!--  <th>Image</th> -->
 							                        </tr>
 							                    </thead>
 							                    <tbody>
@@ -85,7 +83,11 @@
 							                        <tr>
 							                            <td><%= soldProperty.getPropertyid() %></td>
 							                            
-							                            <td><%= soldProperty.getImage() %></td>
+							                            <td><%= soldProperty.getPropertystatus() %></td>
+							                            <td><%= soldProperty.getSoldstatus() %></td>
+							                            <td><%= soldProperty.getSoldprice() %></td>
+							                            <td><%= soldProperty.getSolddate() %></td>
+							                           <%--  <td><%= soldProperty.getImage() %></td> --%>
 							                        </tr>
 							                        <%
 							                            }
@@ -117,8 +119,9 @@
   
     
     <!-- Custom JS -->
+    <!--
     <script src="js/script.js"></script>
-
+	-->
     <!-- Script for DataTable -->
     <script>
         $(document).ready(function () {

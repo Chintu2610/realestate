@@ -8,20 +8,21 @@ import com.real.service.AddContactservice;
 public class AddContactServiceimpl  implements AddContactservice {
 	
 	@Override
-	public String addcontact(String name, String email, String phone, String subject, String message) {
+	public String addcontact(String name, String email, String phone, String subject, String message,String date) {
 		String status = "contact Adding Failed!";
 
         Connection con = DBUtil.provideConnection();
         PreparedStatement ps = null;
 
         try {
-        	ps = con.prepareStatement("INSERT INTO contact (name,email,phone,subject,message) VALUES (?,?,?,?,?)");
+        	ps = con.prepareStatement("INSERT INTO contact (name,email,phone,subject,message,date) VALUES (?,?,?,?,?,?)");
           
             ps.setString(1, name);
             ps.setString(2, email);
             ps.setString(3, phone);
             ps.setString(4, subject);
             ps.setString(5, message);
+            ps.setString(6, date);
 
             int k = ps.executeUpdate();
 

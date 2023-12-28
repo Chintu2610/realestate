@@ -14,7 +14,6 @@ if (roleIDString == null) {
 } else {
     // Rest of your content for the logged-in user
 %>
-
 <!DOCTYPE html>
 <html lang="en">
 	    <head>
@@ -124,7 +123,20 @@ if (roleIDString == null) {
 									</div>
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
-											<select class="form-control" required name="Status">
+											<label>Name</label>
+											<input name="pname" class="form-control">
+										</div>
+									</div>
+									<div class="col-sm-6 col-md-3">
+										<div class="form-group">
+											<label>Mobile Number</label>
+											<input name="pmobile" class="form-control">
+										</div>
+									</div>
+									<div class="col-sm-6 col-md-3">
+										<div class="form-group">
+										<label>Status</label>
+											<select class="form-control" required name="Status">										
 										          <option value="">Select Status</option>
 										          <option value="rent">Rent</option>
 										          <option value="sale">Sale</option>
@@ -132,7 +144,8 @@ if (roleIDString == null) {
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-3">
-									<select class="form-control" required name="type">
+									<label>Type</label>
+									<select class="form-control" required name="type">										 
 										<option value="">Select Type</option>
 										<option value="appartment">Appartment</option>
 										<option value="flat">Flat</option>
@@ -189,7 +202,10 @@ if (roleIDString == null) {
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
 											<label>Is_Highlighted <span class="text-danger">*</span></label>
-												<input name="ishighlight" class="form-control">
+												<select name="ishighlight" class="form-control">
+									        <option value="1">Yes</option>
+									        <option value="0">No</option>
+									    </select>
 										</div>
 									</div>
 									<div class="form-group">
@@ -378,7 +394,8 @@ if (roleIDString == null) {
 		<script src="js/bootstrap-datetimepicker.min.js"></script>
 		
 		<!-- Custom JS -->
-		<script src="js/app.js"></script>
+		<!--
+		<script src="js/app.js"></script>-->
 				
   
         </form>

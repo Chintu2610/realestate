@@ -148,7 +148,11 @@ if (roleIDString == null) {
 											<div class="form-group col-lg-6">
 												<input type="text" name="subject"  class="form-control" placeholder="Subject">
 											</div>
-											<div class="col-lg-12">
+											<div class="form-group col-lg-6">
+												<input class="form-control" name="date" required type="date">
+											</div>
+											
+											<div class="col-lg-6">
 												<div class="form-group">
 													<textarea name="message" class="form-control" rows="5" placeholder="Type Comments..."></textarea>
 												</div>
@@ -205,7 +209,9 @@ if (roleIDString == null) {
 <!-- jQuery -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <!-- Custom JS -->
+    <!--
     <script src="js/script.js"></script>
+    -->
 </form>
 </body>
 </html>
