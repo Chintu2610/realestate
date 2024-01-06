@@ -92,9 +92,10 @@
                     </div>
                 </div>
                 <!-- Footer start -->
-                <jsp:include page="footer.jsp" />
+                
                 <!-- Footer end -->
             </div>
+            <jsp:include page="footer.jsp" />
         </div>
     </div>
 

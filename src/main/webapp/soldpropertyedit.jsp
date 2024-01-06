@@ -110,7 +110,7 @@ if (roleIDString == null) {
                     <div class="form-group" id="propertyStatusDiv">
                         <label for="propertyStatus">Property Status <span class="text-danger">*</span></label>
                         <select name="propertystatus" id="propertystatus" class="form-control" onchange="showStatusMessage()">
-                            <option value="status">Status</option>
+                            <option value="">Select Status</option>
                             <option value="block">Block</option>
                             <option value="reservation">Reservation</option>
                         </select>
@@ -128,7 +128,7 @@ if (roleIDString == null) {
                     <div id="soldDiv" class="form-group">
                         <label for="soldStatus">Sold Status <span class="text-danger">*</span></label>
                         <select name="soldstatus" id="soldstatus" class="form-control" onchange="handleSoldStatusChange()">
-                            <option value="status">Status</option>
+                            <option value="">Select Status</option>
                             <option value="pending">Pending</option>
                             <option value="completed">Completed</option>
                         </select>
@@ -160,17 +160,22 @@ if (roleIDString == null) {
 
 
 
-                <!-- Footer start -->
-                <jsp:include page="footer.jsp" />
-                <!-- Footer end -->
+                
             </div>
-        </div>
+            <jsp:include page="footer.jsp" />
+    	<a href="#" class="bg-white hover-text-secondary" id="scroll">
+		    
+		       <i class="fas fa-arrow-up"></i>
+		        
+		   
+		</a>
+		 </div>
     </div>
 
     <!-- Submit property -->
 
     <!-- Scroll to top -->
-    <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a>
+    
     <!-- End Scroll To top -->
 
     <!-- Wrapper End -->

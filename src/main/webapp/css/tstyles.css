@@ -13,3 +13,6 @@ table {
         .hidden {
 		    display: none;
 		}
+		bg {
+			background-color: white;
+		}

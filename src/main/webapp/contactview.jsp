@@ -44,7 +44,10 @@ if (roleIDString == null) {
     <link rel="stylesheet" href="css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="css/select.bootstrap4.min.css">
     <link rel="stylesheet" href="css/buttons.bootstrap4.min.css">
-
+	<!-- Include Bootstrap Notify CSS and JS files -->
+	<link rel="stylesheet" href="path/to/bootstrap-notify.min.css">
+	
+	
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -97,7 +100,7 @@ if (roleIDString == null) {
                                             <th>Type</th>
                                             <th>Message</th>
                                             <th>Date</th>
-                                            <th>Action</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
 
@@ -118,7 +121,7 @@ if (roleIDString == null) {
                                             <td><%= contact.getMessage() %></td>
                                             <td><%= contact.getDate() %></td>
                                             <td>
-                                                <a href="contactdelete.jsp?id=<%= contact.getCid() %>">contacted</a>
+                                                <a href="#">contacted</a>
                                             </td>
                                         </tr>
                                         <%
@@ -131,23 +134,53 @@ if (roleIDString == null) {
                     </div>
                 </div>
                 <!-- /Contact List -->
+                
+                
+ <%               
+    if (resultSet.size() > 0) {
+%>
+<script>
+    $(document).ready(function () {
+        $.notify({
+            icon: 'fa fa-info-circle',
+            title: '<strong>New Contacts:</strong>',
+            message: 'You have new contacts waiting for your response.',
+        }, {
+            type: 'success',
+            placement: {
+                from: 'top',
+                align: 'right',
+            },
+            offset: {
+                x: 20,
+                y: 70,
+            },
+            spacing: 10,
+            z_index: 1031,
+        });
+    });
+</script>
+<%
+    }
+    // Your existing code...
+%>
+                
 <!--	Footer   start-->
 		
-		<jsp:include page="footer.jsp" />
 		<!--	Footer   start-->
             </div>
+            <jsp:include page="footer.jsp" />
             <!-- /Page Content -->
         </div>
         <!-- /Page Wrapper -->
 </div>
- 
         <!-- jQuery -->
         <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap-notify.min.js"></script>
         <!-- Custom JS -->
        <!-- <script src="js/script.js"></script>
 		-->
     </body>
-
 </html>
 
 <%

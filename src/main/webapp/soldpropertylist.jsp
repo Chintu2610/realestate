@@ -48,7 +48,26 @@ if (roleIDString == null) {
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    .image-container {
+    position: relative;
+}
+
+.sold-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ff6347; /* Coral color, you can change this to your preferred color */
+    color: #fff; /* White text color */
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
     
+    </style>
 </head>
 
 <body>
@@ -84,7 +103,6 @@ if (roleIDString == null) {
     try {
         List<AddProperty> searchResults = (List<AddProperty>) request.getAttribute("searchResults");
         int count = 0;
-
         // Check if the searchResults list is empty
         if (searchResults.isEmpty()) {
 %>
@@ -118,16 +136,25 @@ if (roleIDString == null) {
 					                  	
 					                    <div class="property-card">
 					                        <% System.out.println("Image URL for Property " + property.getPropertyId() + ": " + property.getImageUrl(request)); %>
-					                        <img src="<%= property.getImageUrl(request) %>" alt="Property Image" class="img-fluid">
+					                        
+					                        <!-- Check if the property is sold and add an overlay -->
+						                    <div class="image-container">
+						                        <img src="<%= property.getImageUrl(request) %>" alt="Property Image" class="img-fluid">
+						                        <% if (property.getSold_status() != null && property.getSold_status().equals("completed")) { %>
+						                            <div class="sold-overlay">Sold</div>
+						                        <% } %>
+						                    </div>
 					                        <p><strong>P ID:</strong> <%= property.getPropertyId() %></p>
 					                         <p><strong>Name:</strong> <%= property.getPname() %></p>
 					                          <p><strong>Mobile:</strong> <%= property.getPmobile() %></p>
-					                        
+					                         <% if(property.getSold_status() != null && !property.getSold_status().equals(null)) { %>
+					                        	<p><strong>Sold Status:</strong> <%= property.getSold_status() %></p>
+					                        	<% } %>
 					                        <%-- <p><strong>Type:</strong> <%= property.getType() %></p>
 					                        <p><strong>City:</strong> <%= property.getCity() %></p>
 					                        <p><strong>Price:</strong> <%= property.getPrice() %></p> --%>
 					                        <div>
-					                        <a href="soldpropertyedit.jsp?id=<%= property.getPropertyId() %>">Sold</a>
+					                        <a href="soldpropertyedit.jsp?id=<%= property.getPropertyId() %>">EDIT</a>
 					                        
 					                            <%-- <a href="propertydelete.jsp?id=<%= property.getPropertyId() %>">Delete</a> --%>
 					                        </div>
@@ -177,7 +204,7 @@ if (roleIDString == null) {
     <script src="js/buttons.print.min.js"></script>
 
     <!-- Custom JS -->
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
 </body>
 
 </html>

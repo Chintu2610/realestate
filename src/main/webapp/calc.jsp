@@ -81,26 +81,6 @@ if (roleIDString == null) {
 		 <div class="page-wrapper">
 		 
         <div class="content container-fluid">
-        
-        <!--	Banner   --->
-        <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>User Listed Property</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="propertyview.jsp">Home</a></li>
-                                <li class="breadcrumb-item active">User Listed Property</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-         <!--	Banner   --->
 		 
 		 
 		<!--	Submit property   -->
@@ -113,6 +93,8 @@ if (roleIDString == null) {
 					</div>
 					
 					 <div style="text-align: center;">
+					 <div style="border: 2px solid #ccc; padding: 10px; border-radius: 5px; margin-bottom: 20px; background-color:#a8ebf3;">
+ 
         <form id="loanCalculatorForm">
             <label for="amount">Enter Amount:</label>
             <!-- Remove the initial value to have an empty box -->
@@ -126,8 +108,11 @@ if (roleIDString == null) {
             
             <button type="button" onclick="calculate()">Calculate</button>
         </form>
-
-        <table class="items-list col-lg-6">
+        </div>
+        <br>
+        <br>
+		<div class="d-flex justify-content-center">
+        <table class="items-list col-lg-6 " style="display: none;">
             <thead>
                 <tr class="bg-primary">
                     <th class="text-white font-weight-bolder">Price</th>
@@ -136,15 +121,15 @@ if (roleIDString == null) {
             </thead>
             <tbody>
                 <tr class="text-center font-18">
-                    <td><b>Enter Amount</b></td>
+                    <td><b>Entered Amount</b></td>
                     <td><b id="displayAmount"></b></td>
                 </tr>
                 <tr class="text-center">
-                    <td><b>Enter Month</b></td>
+                    <td><b>Entered Month</b></td>
                     <td><b id="displayMonth"></b></td>
                 </tr>
                 <tr class="text-center">
-                    <td><b>Enter Interest Rate</b></td>
+                    <td><b>Entered Interest Rate</b></td>
                     <td><b id="displayInterest"></b></td>
                 </tr>
                 <tr class="text-center">
@@ -161,6 +146,7 @@ if (roleIDString == null) {
                 </tr>
             </tbody>
         </table>
+        </div>
     </div>
 
 
@@ -169,15 +155,16 @@ if (roleIDString == null) {
 	<!--	Submit property   -->
         
         
-        <!--	Footer   start-->
-		
-		<jsp:include page="footer.jsp" />
-		<!--	Footer   start-->
+        
         
         <!-- Scroll to top --> 
         <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
         <!-- End Scroll To top --> 
     </div>
+    <!--	Footer   start-->
+		
+		<jsp:include page="footer.jsp" />
+		<!--	Footer   start-->
 </div>
 </div>
 <!-- Wrapper End --> 
@@ -201,6 +188,10 @@ if (roleIDString == null) {
             document.getElementById('displayTotalInterest').textContent = totalInterest.toFixed(2);
             document.getElementById('displayTotalAmount').textContent = totalAmount.toFixed(2);
             document.getElementById('displayPayPerMonth').textContent = payPerMonth.toFixed(2);
+            
+         // Show the table
+            document.querySelector('.items-list').style.display = 'table';
+
         }
     </script>
     

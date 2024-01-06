@@ -36,7 +36,7 @@ if (roleIDString == null) {
     <body>
 	<form action="./AddAboutServlet" method="post">
 		<!-- Main Wrapper -->
-		
+		<jsp:include page="header.jsp" />
 		<div class="content container-fluid">
     <!-- Your page content remains the same -->
  
@@ -44,7 +44,7 @@ if (roleIDString == null) {
 				    <div class="main-wrapper">
 		
 			<!--	Header start  -->
-		<jsp:include page="header.jsp" />
+		
         <!--	Header end  -->
       
       <!--	sidebar start  -->

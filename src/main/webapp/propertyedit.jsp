@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.List" %>
+<%@ page import="com.real.serviceimpl.PropertyDAO" %>
 
 <%
 HttpSession sdsession = request.getSession(true);
@@ -14,6 +15,7 @@ if (roleIDString == null) {
 } else {
     // Rest of your content for the logged-in user
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 	    <head>
@@ -76,6 +78,75 @@ if (roleIDString == null) {
 }
 			
     </style>
+	    <script>
+	    // Function to fetch and display property details based on the selected property ID
+	    function showPropertyDetails() {
+	        // Get the selected property ID from the dropdown
+	        var selectedPropertyId = $('[name="id"]').find(":selected").val();
+			console.log("in showpropertydetails");
+	        // Make an AJAX request to the server-side endpoint with the selected property ID
+	        $.ajax({
+	            type: 'GET',
+	            url: 'PropertyDetailsServlet?propertyId=' + selectedPropertyId,
+	            dataType: 'json',
+	            success: function (data) {
+	                // Populate the form fields with the retrieved property details
+	                $('[name="pname"]').val(data.propertyName);
+	                $('[name="pmobile"]').val(data.mobileNumber);
+	                $('[name="Status"]').val(data.status);
+	                $('[name="type"]').val(data.type);
+	                $('[name="age"]').val(data.age);
+	                $('[name="dimensions"]').val(data.dimensions);
+	                $('[name="city"]').val(data.city);
+	                $('[name="highlights"]').val(data.highlights);
+	                $('[name="amenities"]').val(data.amenities);
+	                $('[name="price"]').val(data.price);
+	                $('[name="listeddate"]').val(data.listedDate);
+	                $('[name="ishighlight"]').val(data.isHighlighted);
+	               
+	                
+	                // ... Add more fields as needed ...
+	
+	                // Update the table with property features if available
+	                updatePropertyFeatures(data.features);
+	            },
+	            error: function (error) {
+	                console.error('Error fetching property details:', error);
+	            }
+	        });
+	    }
+	
+	    // Function to update the property features table
+	    function updatePropertyFeatures(features) {
+	        // Clear existing table rows
+	        $('#propertyfeature tbody').empty();
+	
+	        // Iterate through features and add rows to the table
+	        for (var i = 0; i < features.length; i++) {
+	            var rowHtml = '<tr>';
+	            rowHtml += '<td>' + features[i].id + '</td>';
+	            rowHtml += '<td><select name="featurename" class="form-control" style="min-width:250px">' +
+	                        '<option value="gym">Gym</option>' +
+	                        '<option value="swimmingpool">Swimming Pool</option>' +
+	                        '<option value="sportsclub">Sports Club</option>' +
+	                        '<option value="Security">Security</option>' +
+	                        '<option value="Garden">Garden</option>' +
+	                        '</select></td>';
+	            rowHtml += '<td><input name="typename" class="form-control" style="min-width:500px" type="text" value="' + features[i].typeName + '"></td>';
+	            rowHtml += '</tr>';
+	
+	            $('#propertyfeature tbody').append(rowHtml);
+	        }
+	    }
+	
+	    // Attach the showPropertyDetails function to the change event of the property ID dropdown
+	    $('[name="id"]').change(function () {
+	        showPropertyDetails();
+	    });
+	
+	    // Trigger the showPropertyDetails function on page load (if an initial property ID is selected)
+	    showPropertyDetails();
+	</script>
     </head>
     
     <body>
@@ -110,23 +181,33 @@ if (roleIDString == null) {
 							</div>
 						</div>
 					</div>
-					<!-- /Page Header -->
-					
+					<!-- /Page Header -->					
 					<div class="row">
 						<div class="col-sm-12">
 								<div class="row">
 								<div class="col-sm-6 col-md-3">
 										<div class="form-group">
-											<label>ID <span class="text-danger">*</span></label>
-											<input name="id" class="form-control">
+											<label>ID <span class="text-danger">*</span></label>																		<!-- Use a dropdown to select property IDs -->
+							                <select name="id" class="form-control" onchange="showPropertyDetails()">
+							                    <option value="">Select Property ID</option>							                    
+							                    <% List<Integer> propertyIds =PropertyDAO.getAllPropertyId(); %>
+							                    <% for (Integer propertyId : propertyIds) { %>
+							                        <option value="<%= propertyId %>"><%= propertyId %></option>
+							                    <% } %>
+							                    
+               								 </select>
 										</div>
 									</div>
+									<%
+									
+									%>
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
 											<label>Name</label>
-											<input name="pname" class="form-control">
+											<input vL name="pname" class="form-control">
 										</div>
 									</div>
+									<input name="username" class="form-control" value="<%= username %>" hidden>
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
 											<label>Mobile Number</label>
@@ -181,10 +262,8 @@ if (roleIDString == null) {
 									</div>
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
-											<label>Amenities <span class="text-danger">*</span></label>
-											
-												<input name="amenities" class="form-control">
-											
+											<label>Amenities <span class="text-danger">*</span></label>											
+												<input name="amenities" class="form-control">											
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-3">
@@ -200,13 +279,11 @@ if (roleIDString == null) {
 									</div>
 									</div>
 									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
 											<label>Is_Highlighted <span class="text-danger">*</span></label>
-												<select name="ishighlight" class="form-control">
+									    <select name="ishighlight" class="form-control">
 									        <option value="1">Yes</option>
 									        <option value="0">No</option>
 									    </select>
-										</div>
 									</div>
 									<div class="form-group">
 					                    <label class="col-form-label">Modification Description <span class="text-danger">*</span></label>
@@ -234,41 +311,13 @@ if (roleIDString == null) {
 								<div class="row">
 									<div class="col-md-12 col-sm-12">
 										<div class="table-responsive">
-											<table class="table table-hover table-white" id="propertyfeature" >
-												<thead>
-													<tr>
-														<th style="width: 20px">ID</th>
-														<th class="col-md-6">Feature_Name</th>
-														<th style="width:100px;">Type_Name</th>
-														
-														<th> </th>
-													</tr>
-												</thead>
-												<tbody>
-												<tr>
-													<td>1</td>
-													
-													<td>
-									                <select name="featurename" class="form-control" style="min-width:250px">
-									                    <option value="gym">Gym</option>
-									                    <option value="swimmingpool">Swimming Pool</option>
-									                    <option value="sportsclub">Sports Club</option>
-									                     <option value="Security">Security</option>
-									                    <option value="Garden">Garden</option>
-									                </select>								
-							      					</td>
-													<td>
-														<input name="typename" class="form-control" style="min-width:500px" type="text">
-													</td>
-												</tr>	
-												</tbody>
-											</table>
+											
 										</div>
 										
 									</div>
 								</div>
 								<div class="submit-section">
-								<button class="btn btn-primary submit-btn m-r-10">Save &amp; Send</button>
+								<button class="btn btn-danger delete-btn" onclick="deleteProperty()">Delete Property</button>
 									<button class="btn btn-primary submit-btn">Save</button>
 								</div>
 							
@@ -283,6 +332,38 @@ if (roleIDString == null) {
         </div>
 	
 		 <script>
+		 function deleteProperty() {
+			    // Get the selected property ID from the dropdown
+			    var selectedPropertyId = $('[name="id"]').find(":selected").val();
+			    // Check if a property is selected
+			    if (!selectedPropertyId) {
+			        // If no property is selected, show an alert
+			        alert("Please select a property before clicking the delete button.");
+			        return; // Exit the function without proceeding
+			    }
+			    // Confirm with the user before deleting
+			    var confirmDelete = confirm("Are you sure you want to delete this property?");
+			    if (confirmDelete) {
+			        // Make an AJAX request to the server-side endpoint for deleting the property
+			        $.ajax({
+			            type: 'POST',
+			            url: 'DeletePropertySrv', // Replace with your actual delete property servlet URL
+			            data: { propertyId: selectedPropertyId },
+			            success: function (data) {
+			                // Handle success, e.g., show a success message
+			                alert('Property deleted successfully!');
+			                // Optionally, you can redirect the user to a different page
+			                window.location.href = 'index.jsp'; // Replace with your desired redirect URL
+			            },
+			            error: function (error) {
+			                // Handle error, e.g., show an error message
+			                console.error('Error deleting property:', error);
+			                alert('Error deleting property. Please try again.');
+			            }
+			        });
+			    }
+			}
+
     function deleteHighlight(button) {
         var highlightItem = button.closest('.highlight-item');
         // Check if it's the only highlight item before removing
@@ -373,6 +454,9 @@ if (roleIDString == null) {
         });
     };
 </script>
+<!-- ... Your existing HTML code ... -->
+
+<!-- ... Your existing script and HTML closing tags ... -->
 
 		<!-- Inside your HTML form -->
 
@@ -397,7 +481,6 @@ if (roleIDString == null) {
 		<!--
 		<script src="js/app.js"></script>-->
 				
-  
         </form>
     </body>
 </html>

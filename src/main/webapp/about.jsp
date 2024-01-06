@@ -46,7 +46,7 @@ if (roleIDString == null) {
 <link rel="stylesheet" type="text/css" href="css/layerslider.css">
 <link rel="stylesheet" type="text/css" href="css/color.css" id="color-change">
 <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -64,6 +64,16 @@ if (roleIDString == null) {
         justify-content: center;
         align-items: center;
         text-align: center;
+    }
+    #scroll {
+        position: fixed;
+        bottom: 20px; /* Adjust the distance from the bottom as needed */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+     #scroll i {
+        color: black; /* Color of the arrow */
+        font-size: 24px; /* Adjust the font size of the arrow */
     }
 </style>
 </head>
@@ -163,13 +173,18 @@ if (roleIDString == null) {
         
        <!--	Footer   start-->
 		
-		<jsp:include page="footer.jsp" />
+	
 		<!--	Footer   start-->
         
-        <!-- Scroll to top --> 
-        <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
-        <!-- End Scroll To top --> 
+         
     </div>
+    	<jsp:include page="footer.jsp" />
+    	<a href="#" class="bg-white hover-text-secondary" id="scroll">
+		    
+		       <i class="fas fa-arrow-up"></i>
+		        
+		   
+		</a>
 </div>
 </div>
 <!-- Wrapper End --> 

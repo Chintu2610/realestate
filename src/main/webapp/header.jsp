@@ -17,7 +17,6 @@
             z-index: 1000;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         /* Adjust the padding to ensure content isn't hidden behind the fixed header */
         .sticky-header-active .content {
             padding-top: 80px; /* Adjust as needed based on your header height */
@@ -28,7 +27,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px;
-            background-color:white; /* Adjust as needed */
+            background-color:#6c757d; /* Adjust as needed */
             color: white; /* Adjust as needed */
         }
 
@@ -52,15 +51,16 @@
         .navbar-right {
             margin-left: auto;
         }
+        
     </style>
 </head>
 <body>
 
 <!-- Header Section -->
-<nav class="navbar">
+<nav class="navbar bg">
     <div class="navbar-left">
         <a href="dashboard.jsp">
-            <img src="./images/logo/logo.png" style="width: 100%;" alt="Logo">
+            <img src="./images/logo/logo.png" style="width: 100%; height: 70px;" alt="Logo">
         </a>
     </div>
     
@@ -73,7 +73,7 @@
             </li>
             
             <li>
-                <a class="nav-link" href="logout.jsp">
+                <a class="nav-link" href="logout.jsp" onclick="return confirm('Are you sure you want to log out?')">
                     <button type="button" class="btn btn-success">Logout</button>
                 </a>
             </li>

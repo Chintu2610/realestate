@@ -8,9 +8,9 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-4">
                                     <div class="footer-widget mb-4">
-                                        <div class="footer-logo mb-4"> <a href="#"><img class="logo-bottom" src="images/logo/logo-white.png" alt="image"></a> </div>
-                                        <p class="pb-20 text-white">Real estate involves buying, selling, and managing properties such as homes, commercial buildings, and land. It is a dynamic market influenced by economic factors, location, and property conditions.	</p>
-	                                        </div>
+                                        <div class="footer-logo mb-4" style="margin-top:20px;"> <a href="about.jsp"><img class="logo-bottom" src="images/logo/logo.png" alt="image"></a> </div>
+                                       <!--  <p class="pb-20 text-white">Real estate involves buying, selling, and managing properties such as homes, commercial buildings, and land. It is a dynamic market influenced by economic factors, location, and property conditions.	</p>
+	                                    -->     </div>
                                 </div>
                                 
                                 <div class="col-md-12 col-lg-8">

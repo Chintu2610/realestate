@@ -139,13 +139,14 @@ if (roleIDString == null) {
                     </div>
                 </div>            
             </div>
+            <jsp:include page="footer.jsp" />
         </div>
 	<!--	Submit property   -->
         
         
         <!--	Footer   start-->
 		
-		<jsp:include page="footer.jsp" />
+		
 		<!--	Footer   end-->
         
         <!-- Scroll to top --> 

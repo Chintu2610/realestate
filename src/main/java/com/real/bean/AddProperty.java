@@ -3,30 +3,45 @@ package com.real.bean;
 import javax.servlet.http.HttpServletRequest;
 
 public class AddProperty {
-    private String propertyId;
-    private String pname;
+	private String propertyId;
+	private String pname;
 	private String pmobile;
-    private String status;
-    private String type;
-    private String age;
-    private String dimensions;
-    private String city;
-    private String highlights;
-    private String amenities;
-    private String price;
-    private String listedDate;
-    private String isHighlighted;
-    private String createdBy;
-    private String image;
+	private String status;
+	private String type;
+	private String age;
+	private String dimensions;
+	private String city;
+	private String highlights;
+	private String amenities;
+	private String price;
+	private String listedDate;
+	private String isHighlighted;
+	private String createdBy;
+	private String image;
+	private String description;
+	private String sold_status;
 
-    public String getImage() {
-        return image;
-    }
+	public String getSold_status() {
+		return sold_status;
+	}
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-    public String getPname() {
+	public void setSold_status(String sold_status) {
+		this.sold_status = sold_status;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getPname() {
 		return pname;
 	}
 
@@ -42,39 +57,39 @@ public class AddProperty {
 		this.pmobile = pmobile;
 	}
 
-    public String getPropertyId() {
-        return propertyId;
-    }
+	public String getPropertyId() {
+		return propertyId;
+	}
 
-    public void setPropertyId(String propertyId) {
-        this.propertyId = propertyId;
-    }
+	public void setPropertyId(String propertyId) {
+		this.propertyId = propertyId;
+	}
 
-    public String getType() {
-        return type;
-    }
+	public String getType() {
+		return type;
+	}
 
-    public void setType(String type) {
-        this.type = type;
-    }
+	public void setType(String type) {
+		this.type = type;
+	}
 
-    public String getAge() {
-        return age;
-    }
+	public String getAge() {
+		return age;
+	}
 
-    public void setAge(String age) {
-        this.age = age;
-    }
+	public void setAge(String age) {
+		this.age = age;
+	}
 
-    public String getDimensions() {
-        return dimensions;
-    }
+	public String getDimensions() {
+		return dimensions;
+	}
 
-    public void setDimensions(String dimensions) {
-        this.dimensions = dimensions;
-    }
+	public void setDimensions(String dimensions) {
+		this.dimensions = dimensions;
+	}
 
-    public String getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
@@ -91,72 +106,76 @@ public class AddProperty {
 	}
 
 	public String getHighlights() {
-        return highlights;
-    }
+		return highlights;
+	}
 
-    public void setHighlights(String highlights) {
-        this.highlights = highlights;
-    }
+	public void setHighlights(String highlights) {
+		this.highlights = highlights;
+	}
 
-    public String getAmenities() {
-        return amenities;
-    }
+	public String getAmenities() {
+		return amenities;
+	}
 
-    public void setAmenities(String amenities) {
-        this.amenities = amenities;
-    }
+	public void setAmenities(String amenities) {
+		this.amenities = amenities;
+	}
 
-    public String getPrice() {
-        return price;
-    }
+	public String getPrice() {
+		return price;
+	}
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
+	public void setPrice(String price) {
+		this.price = price;
+	}
 
-    public String getListedDate() {
-        return listedDate;
-    }
+	public String getListedDate() {
+		return listedDate;
+	}
 
-    public void setListedDate(String listedDate) {
-        this.listedDate = listedDate;
-    }
+	public void setListedDate(String listedDate) {
+		this.listedDate = listedDate;
+	}
 
-    public String getIsHighlighted() {
-        return isHighlighted;
-    }
+	public String getIsHighlighted() {
+		return isHighlighted;
+	}
 
-    public void setIsHighlighted(String isHighlighted) {
-        this.isHighlighted = isHighlighted;
-    }
+	public void setIsHighlighted(String isHighlighted) {
+		this.isHighlighted = isHighlighted;
+	}
 
-    public String getImageUrl(HttpServletRequest request) {
-        // Provide the implementation for fetching the image URL based on the property ID and the request
-        // Example: return request.getContextPath() + "/admin/property/" + propertyId + ".jpg";
-        return request.getContextPath() + "/admin/property/" + propertyId + ".jpg";
-    }
+	public String getImageUrl(HttpServletRequest request) {
+		// Provide the implementation for fetching the image URL based on the property
+		// ID and the request
+		// Example: return request.getContextPath() + "/admin/property/" + propertyId +
+		// ".jpg";
+		return request.getContextPath() + "/admin/property/" + propertyId + ".jpg";
+	}
 
-    public String getPropertyUrl() {
-        // Provide the implementation for fetching the property URL based on the property ID
-        // Example: return "admin/property/" + propertyId + ".jpg";
-        return "admin/property/" + propertyId + ".jpg";
-    }
+	public String getPropertyUrl() {
+		// Provide the implementation for fetching the property URL based on the
+		// property ID
+		// Example: return "admin/property/" + propertyId + ".jpg";
+		return "admin/property/" + propertyId + ".jpg";
+	}
 
-    public String getCreatedBy() {
-        return createdBy;
-    }
+	public String getCreatedBy() {
+		return createdBy;
+	}
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 
 	public void setDescription(String description) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void setUser(String user) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 }

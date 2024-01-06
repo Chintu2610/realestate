@@ -6,18 +6,15 @@
 
 <%
 HttpSession sdsession = request.getSession(true);
-
 // Retrieve the username attribute from the session
 String username = (String) sdsession.getAttribute("username");
 String roleIDString = (String) sdsession.getAttribute("RoleID");
-
 // Check if the user is logged in or redirect to the login page
 if (roleIDString == null) {	
     response.sendRedirect("login.jsp"); // Change "login.jsp" to your actual login page
 } else {
     // Rest of your content for the logged-in user
 %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,7 +84,7 @@ if (roleIDString == null) {
                                         <label>Type</label>
                                          <select class="form-control" name="type">
                                                 <option value="">Select Type</option>
-												<option value="appartment">Appartment</option>
+												<option value="apartment">Apartment</option>
 												<option value="flat">Flat</option>
 												<option value="bunglow">Bunglow</option>
 												<option value="house">House</option>
@@ -103,18 +100,22 @@ if (roleIDString == null) {
                                 </div>
                              </form>
 
-                <!-- Footer start-->
-                <jsp:include page="footer.jsp" />
-                <!-- Footer end-->
+                
             </div>
+           <div style="height: 100px; width:1200px; padding: 0px; margin-left:0px; margin-top:20px;">
+    				<!-- Your footer content goes here -->
+     				<jsp:include page="footer.jsp" />
+				</div>
+            
+		   
+		    
         </div>
+       
     </div>
 
     <!-- Submit property -->
 
-    <!-- Scroll to top -->
-    <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a>
-    <!-- End Scroll To top -->
+    
 
     <!-- Wrapper End -->
 
@@ -204,7 +205,7 @@ if (roleIDString == null) {
     <!-- Js Link -->
     <script src="js/jquery.min.js"></script>
     <!-- Your existing script tags... -->
-    <script src="js/custom.js"></script>
+     <!-- <script src="js/custom.js"></script>. -->
 </body>
 </html>
 

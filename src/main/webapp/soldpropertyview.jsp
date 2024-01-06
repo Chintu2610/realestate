@@ -31,7 +31,7 @@
 </head>
 
 <body> 
-    <div class="main-wrapper">
+    <div class="main-wrapper" >
         <!-- Header start -->
         <jsp:include page="header.jsp" />
         <!-- Header end -->
@@ -99,18 +99,20 @@
 							    </div>
 							</div>
 
-                <!-- Footer start -->
+                
+            </div>
+            <!-- Footer start -->
                 <jsp:include page="footer.jsp" />
                 <!-- Footer end -->
-            </div>
+                
         </div>
+        
     </div>
 
     <!-- /Main Wrapper -->
 
     <!-- jQuery -->
     <script src="js/jquery-3.2.1.min.js"></script>
-
     <!-- Bootstrap Core JS -->
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

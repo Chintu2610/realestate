@@ -32,7 +32,11 @@
 <link rel="stylesheet" type="text/css" href="css/flaticon.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
-
+<style type="text/css">
+.bg{
+	background-color: #066d6b;
+}
+</style>
 <!--	Title   -->
 <title>Homex - Real Estate Template</title>
 </head>
@@ -61,52 +65,54 @@
 
     <!-- Pricing Section -->
     <section class="pricing-section spad set-bg" data-setbg="img/gym3.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <!-- Add your content for the first column here -->
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                    <div class="pricing-item entermediate">
-                        <div class="pi-top">
-                            <h2> Welcome to Reset Password</h2><br />
-                            <!-- Add your content here -->
+        <!-- Centered Box with Border -->
+    <div class="container border p-4 bg">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-sm-12">
+                <!-- Pricing Section -->
+                <section class="pricing-section spad set-bg" data-setbg="img/gym3.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="pricing-item entermediate">
+                                    <div class="pi-top">
+                                        <h2>Welcome to Reset Password</h2><br />
+                                    </div>
+                                    <form class="singup-form contact-form" method="GET" action="./ResetPasswordServlet">
+                                        <div class="form-group">
+                                            <label for="email">Enter email</label>
+                                            <input type="text" class="form-control" name="email"
+                                                placeholder="Enter new password" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>OLD Password</label>
+                                            <input type="password" class="form-control" name="OLDpassword"
+                                                placeholder="Enter OLD password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>New Password</label>
+                                            <input type="password" class="form-control" name="newpassword"
+                                                placeholder="Enter new password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirm Password</label>
+                                            <input type="password" class="form-control" name="confirmpassword"
+                                                placeholder="Confirm new password">
+                                        </div>
+                                        <input type="hidden" name="token" value="<%= token %>">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary" name="reset">Reset Password</button>
+                                        </div>
+                                    </form>
+                                    <!-- Include your Java code to handle password reset form submission here -->
+                                </div>
+                            </div>
                         </div>
-                       <%--  <% if (error != null) { %>
-                            <div class="errorWrap" style="color: red;"><strong>ERROR</strong>: <%= error %> </div>
-                        <% } else if (msg != null) { %>
-                            <div class="succWrap" style="color: red;"><strong>Error</strong>: <%= msg %> </div>
-                        <% } %>
- --%>
-                        <form class="singup-form contact-form" method="GET" action="./ResetPasswordServlet">
-                            <div class="row">
-                                  <div class="col-md-12">
-                                <label>Re-enter email</label>
-                                    <input type="text" name="email" placeholder="Enter new password">
-                                </div>
-                                <div class="col-md-12">
-                                <label>newpassword</label>
-                                    <input type="password" name="newpassword" placeholder="Enter new password">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                 <label>confirmpassword</label>
-                                    <input type="password" name="confirmpassword" placeholder="Confirm new password">
-                                </div>
-                            </div>
-                            <input type="hidden" name="token" value="<%= token %>">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <button type="submit" name="reset" value="Reset Password"> Reset</button>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- Include your Java code to handle password reset form submission here -->
                     </div>
-                </div>
+                </section>
             </div>
         </div>
+    </div>
     </section>
 
    <!--	Js Link      --> 

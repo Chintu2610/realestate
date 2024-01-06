@@ -14,49 +14,50 @@ public class DBUtil {
 	}
 
 	public static Connection provideConnection() {
-	    try {
-	        if (conn == null || conn.isClosed()) {
-	            ResourceBundle rb = ResourceBundle.getBundle("application");
-	            String connectionString = rb.getString("jdbc.url");
-	            String driverName = rb.getString("jdbc.driver");
-	            String username = rb.getString("jdbc.username");
-	            String password = rb.getString("jdbc.password");
+		try {
+			if (conn == null || conn.isClosed()) {
+				ResourceBundle rb = ResourceBundle.getBundle("application");
+				String connectionString = rb.getString("jdbc.url");
+				String driverName = rb.getString("jdbc.driver");
+				String username = rb.getString("jdbc.username");
+				String password = rb.getString("jdbc.password");
 
-	            try {
-	                Class.forName(driverName);
-	            } catch (ClassNotFoundException e) {
-	                e.printStackTrace();
-	            }
-	            conn = DriverManager.getConnection(connectionString, username, password);
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+				try {
+					Class.forName(driverName);
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				conn = DriverManager.getConnection(connectionString, username, password);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-	    return conn;
+		return conn;
 	}
 
 	public static Connection auditConnection() {
-	    try {
-	        if (conn == null || conn.isClosed()) {
-	            ResourceBundle rb = ResourceBundle.getBundle("application");
-	            String connectionString = rb.getString("jdbc.url.another");
-	            String driverName = rb.getString("jdbc.driver.another");
-	            String username = rb.getString("jdbc.username.another");
-	            String password = rb.getString("jdbc.password.another");
+		Connection conn2 = null;
+		try {
 
-	            try {
-	                Class.forName(driverName);
-	            } catch (ClassNotFoundException e) {
-	                e.printStackTrace();
-	            }
-	            conn = DriverManager.getConnection(connectionString, username, password);
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+			if (conn2 == null || conn2.isClosed()) {
+				ResourceBundle rb = ResourceBundle.getBundle("application");
+				String connectionString = rb.getString("jdbc.url.another");
+				String driverName = rb.getString("jdbc.driver.another");
+				String username = rb.getString("jdbc.username.another");
+				String password = rb.getString("jdbc.password.another");
 
-	    return conn;
+				try {
+					Class.forName(driverName);
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				conn2 = DriverManager.getConnection(connectionString, username, password);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return conn2;
 	}
 
 	public static void closeConnection(Connection con) {
@@ -99,6 +100,5 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 }

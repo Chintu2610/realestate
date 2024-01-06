@@ -95,7 +95,7 @@ if (roleIDString == null) {
         <p class="lead">After properties are listed, they will be available at the moment.</p>
         <hr class="my-4">
         <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Explore other options</a>
+            <a class="btn btn-primary btn-lg" href="index.jsp" role="button">Explore other options</a>
         </p>
     </div>
 </div>
@@ -197,7 +197,9 @@ if (roleIDString == null) {
     <script src="js/buttons.print.min.js"></script>
 
     <!-- Custom JS -->
+    <!-- 
     <script src="js/script.js"></script>
+    -->
 </body>
 
 </html>

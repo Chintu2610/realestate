@@ -143,24 +143,26 @@ if (roleIDString == null) {
 									</div>
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
-											<select class="form-control" required name="Status">
+										<label>Status</label>
+											<select class="form-control" required name="Status">										
 										          <option value="">Select Status</option>
 										          <option value="rent">Rent</option>
 										          <option value="sale">Sale</option>
-									         </select>
+											</select>
 										</div>
 									</div>
 										<div class="col-sm-6 col-md-3">
-										<select class="form-control" required name="type">
-											<option value="">Select Type</option>
-											<option value="appartment">Appartment</option>
-											<option value="flat">Flat</option>
-											<option value="bunglow">Bunglow</option>
-											<option value="house">House</option>
-											<option value="villa">Villa</option>
-											<option value="office">Office</option>
-										</select>
-									</div>
+									<label>Type</label>
+									<select class="form-control" required name="type">										 
+										<option value="">Select Type</option>
+										<option value="apartment">Apartment</option>
+										<option value="flat">Flat</option>
+										<option value="bunglow">Bunglow</option>
+										<option value="house">House</option>
+										<option value="villa">Villa</option>
+										<option value="office">Office</option>
+									</select>
+								</div>
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
 											<label>AGE</label>
@@ -262,7 +264,7 @@ if (roleIDString == null) {
 									</div>
 								</div>
 								<div class="submit-section">
-								<button class="btn btn-primary submit-btn m-r-10">Save &amp; Send</button>
+								<!--<button class="btn btn-primary submit-btn m-r-10">Save &amp; Send</button>-->
 									<button class="btn btn-primary submit-btn">Save</button>
 								</div>
 

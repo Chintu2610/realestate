@@ -44,7 +44,7 @@ if (roleIDString == null) {
 <link rel="stylesheet" type="text/css" href="css/layerslider.css">
 <link rel="stylesheet" type="text/css" href="css/color.css" id="color-change">
 <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="css/flaticon.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -70,6 +70,16 @@ if (roleIDString == null) {
             text-align: justify; /* You can use other values like 'left', 'center', 'right', or 'justify' */
              white-space: normal;
         }
+        #scroll {
+        position: fixed;
+        bottom: 20px; /* Adjust the distance from the bottom as needed */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+     #scroll i {
+        color: black; /* Color of the arrow */
+        font-size: 24px; /* Adjust the font size of the arrow */
+    }
 </style>
 
 </head>
@@ -103,7 +113,7 @@ if (roleIDString == null) {
                                         <div class="form-group">
                                             <select class="form-control" name="type">
                                                 <option value="">Select Type</option>
-												<option value="appartment">Appartment</option>
+												<option value="apartment">Apartment</option>
 												<option value="flat">Flat</option>
 												<option value="bunglow">Bunglow</option>
 												<option value="house">House</option>
@@ -139,7 +149,8 @@ if (roleIDString == null) {
             </div>
         </div>
         <!--	Banner End  -->
-        
+        <br>
+        <br>
         <!--	Text Block One
 		======================================================-->
         <div class="full-row bg-gray">
@@ -481,16 +492,16 @@ if (roleIDString == null) {
 		<!--	Testonomial -->
 		
 				</div>
-		
+	
+        <!-- End Scroll To top --> 
         <!--	Footer   start-->
 		
 		<jsp:include page="footer.jsp" />
 		<!--	Footer   start-->
-        
-        
-        <!-- Scroll to top --> 
-        <a href="#" class="bg-primary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
-        <!-- End Scroll To top --> 
+        	<!-- Scroll to top --> 
+		<a href="#" class="bg-white hover-text-secondary" id="scroll">		    
+		       <i class="fas fa-arrow-up"></i>		        		   
+		</a>       
     </div>
 </div>
 <!-- Wrapper End --> 
