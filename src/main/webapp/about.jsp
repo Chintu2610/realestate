@@ -5,21 +5,17 @@
 
 <%
 HttpSession sdsession = request.getSession(true);
-
 // Retrieve the username attribute from the session
 String username = (String) sdsession.getAttribute("username");
 String roleIDString = (String) sdsession.getAttribute("RoleID");
-
 // Check if the user is logged in or redirect to the login page
 if (roleIDString == null) {
     response.sendRedirect("login.jsp"); // Change "login.jsp" to your actual login page
 } else {
     // Rest of your content for the logged-in user
 %>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <!-- Required meta tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">

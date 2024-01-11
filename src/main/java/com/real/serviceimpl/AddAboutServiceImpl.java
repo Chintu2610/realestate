@@ -1,102 +1,102 @@
 package com.real.serviceimpl;
-import java.sql.Connection;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import com.real.utility.DBUtil;
+
 import com.real.service.AddAboutservice;
+import com.real.utility.DBUtil;
 
-public class AddAboutServiceImpl  implements AddAboutservice {
-	
-		@Override
-		public String addabout(String id, String title, String content, String image) {
-			
-				String status = "about Adding Failed!";
+public class AddAboutServiceImpl implements AddAboutservice {
 
-		        Connection con = DBUtil.provideConnection();
-		        PreparedStatement ps = null;
+	@Override
+	public String addabout(String id, String title, String image, String content) {
 
-		        try {
-		        	ps = con.prepareStatement("INSERT INTO about (id,title,content,image) VALUES (?,?,?,?)");
-		            ps.setString(1, id);
-		            ps.setString(2, title);
-		            ps.setString(3, content);
-		            ps.setString(4, image);
-		
-		            int k = ps.executeUpdate();
+		String status = "about Adding Failed!";
 
-		            if (k > 0) {
-		                status = "about Added Successfully!";
-		            }
-		        } catch (SQLException e) {
-		            status = "Error: " + e.getMessage();
-		            e.printStackTrace();
-		        } finally {
-		            DBUtil.closeConnection(con);
-		            DBUtil.closeConnection(ps);
-		        }
+		Connection con = DBUtil.provideConnection();
+		PreparedStatement ps = null;
 
-		        return status;
+		try {
+			ps = con.prepareStatement("INSERT INTO about (id,title,content,image) VALUES (?,?,?,?)");
+			ps.setString(1, id);
+			ps.setString(2, title);
+			ps.setString(3, content);
+			ps.setString(4, image);
+
+			int k = ps.executeUpdate();
+
+			if (k > 0) {
+				status = "about Added Successfully!";
+			}
+		} catch (SQLException e) {
+			status = "Error: " + e.getMessage();
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(con);
+			DBUtil.closeConnection(ps);
 		}
 
-		@Override
-		public String deleteabout(String id) {
-			
-				String status = "about Removal Failed!";
+		return status;
+	}
 
-			    Connection con = DBUtil.provideConnection();
-			    PreparedStatement ps = null;
+	@Override
+	public String deleteabout(String id) {
 
-			    try {
-			        ps = con.prepareStatement("DELETE FROM about WHERE id = ?");
-			        ps.setString(1, id);
+		String status = "about Removal Failed!";
 
-			        int k = ps.executeUpdate();
+		Connection con = DBUtil.provideConnection();
+		PreparedStatement ps = null;
 
-			        if (k > 0) {
-			            status = "about Removed Successfully!";
-			        }
-			    } catch (SQLException e) {
-			        status = "Error: " + e.getMessage();
-			        e.printStackTrace();
-			    } finally {
-			        DBUtil.closeConnection(con);
-			        DBUtil.closeConnection(ps);
-			    }
+		try {
+			ps = con.prepareStatement("DELETE FROM about WHERE id = ?");
+			ps.setString(1, id);
 
-			    return status;
+			int k = ps.executeUpdate();
+
+			if (k > 0) {
+				status = "about Removed Successfully!";
+			}
+		} catch (SQLException e) {
+			status = "Error: " + e.getMessage();
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(con);
+			DBUtil.closeConnection(ps);
 		}
 
-		@Override
-		public String editabout(String id, String title, String content, String image) {
-			String status = "about Failed!";
+		return status;
+	}
 
-		    Connection con = DBUtil.provideConnection();
-		    PreparedStatement ps = null;
+	@Override
+	public String editabout(String id, String title, String content, String image) {
+		String status = "about Failed!";
 
-		    try {
-		        ps = con.prepareStatement("UPDATE about SET title =?, content =?, image =?  WHERE id=?");  
-		   
-		        ps.setString(1, title);
-		        ps.setString(2, content);
-		        ps.setString(3, image);
-		        ps.setString(4, id);
+		Connection con = DBUtil.provideConnection();
+		PreparedStatement ps = null;
 
-		        int k = ps.executeUpdate();
+		try {
+			ps = con.prepareStatement("UPDATE about SET title =?, content =?, image =?  WHERE id=?");
 
-		        if (k > 0) {
-		            status = "about Updated Successfully!";
-		        }
-		    } catch (SQLException e) {
-		        e.printStackTrace();
-		    } finally {
-		        DBUtil.closeConnection(con);
-		        DBUtil.closeConnection(ps);
-		    }
+			ps.setString(1, title);
+			ps.setString(2, content);
+			ps.setString(3, image);
+			ps.setString(4, id);
 
-		    return status;
-		
+			int k = ps.executeUpdate();
 
+			if (k > 0) {
+				status = "about Updated Successfully!";
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeConnection(con);
+			DBUtil.closeConnection(ps);
 		}
-			
+
+		return status;
+
+	}
+
 }

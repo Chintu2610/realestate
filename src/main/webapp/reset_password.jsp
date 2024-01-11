@@ -84,11 +84,7 @@
                                             <input type="text" class="form-control" name="email"
                                                 placeholder="Enter new password" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label>OLD Password</label>
-                                            <input type="password" class="form-control" name="OLDpassword"
-                                                placeholder="Enter OLD password">
-                                        </div>
+                                        
                                         <div class="form-group">
                                             <label>New Password</label>
                                             <input type="password" class="form-control" name="newpassword"

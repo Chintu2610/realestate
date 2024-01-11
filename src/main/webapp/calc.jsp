@@ -157,9 +157,7 @@ if (roleIDString == null) {
         
         
         
-        <!-- Scroll to top --> 
-        <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
-        <!-- End Scroll To top --> 
+        
     </div>
     <!--	Footer   start-->
 		

@@ -2,7 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.real.bean.AddProperty" %>
 <%@ page import="com.real.serviceimpl.PropertyDAO" %>
-
+<%@ page import="com.real.serviceimpl.AddPropertyServiceImpl" %>
 <%
 HttpSession sdsession = request.getSession(true);
 
@@ -163,30 +163,20 @@ if (roleIDString == null) {
                     <div class="row">
                        <div class="col-lg-3 col-md-6">
 							    <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
-							       <!-- <div class="row">
+							       <!--  <div class="row">
                             <div class="col-md-12">
-                                <div id="single-property" style="width:1200px; height:700px; margin:30px auto 50px;"> 
-                                    Slide 1
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/16.jpg" class="ls-bg" alt="" /> </div>
-                                    
-                                    Slide 2
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/17.jpg" class="ls-bg" alt="" /> </div>
-                                    
-                                    Slide 3
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/3.jpg" class="ls-bg" alt="" /> </div>
-									
-									Slide 4
-									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/1.jpg" class="ls-bg" alt="" /> </div>
-									
-									Slide 5
+                                <div id="single-property" style="width:1200px; height:700px; margin:30px auto 50px;">                                    
+                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/16.jpg" class="ls-bg" alt="" /> </div>                                                                      
+                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/17.jpg" class="ls-bg" alt="" /> </div>                                                                       
+                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/3.jpg" class="ls-bg" alt="" /> </div>																	
+									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/1.jpg" class="ls-bg" alt="" /> </div>																
 									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/20.jpg" class="ls-bg" alt="" /> </div>
                                 </div>
                             </div>
-                        </div> -->
-                       <div style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
-							  <img src="admin/property/3.jpg" alt="Selling Service Image" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-
+                        </div>    -->  
+                        <div style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+								  <img src="admin/property/15.jpg" alt="Property Listing Image" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 50%;">
+								</div>                   
 							        <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="contact.jsp">Selling Service</a></h5>
 							        <p>Elevate your business with our top-tier services! From cutting-edge digital solutions to unparalleled consultancy,
 							         we deliver excellence. Ourteam ensures seamless integration and innovation. 
@@ -194,71 +184,30 @@ if (roleIDString == null) {
 							          Transform possibilities into realities with us!</p>
 							    </div>
 							</div>
-
-                        <div class="col-lg-3 col-md-6">
+							                        <div class="col-lg-3 col-md-6">
                             <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
-								<!-- <div class="row">
-                            <div class="col-md-12">
-                                <div id="rental-property" style="width:200px; height:100px; margin:30px auto 50px;">
-                                    Slide 1
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/04.jpg" class="ls-bg" alt="" /> </div>
-                                    
-                                    Slide 2
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/05.jpg" class="ls-bg" alt="" /> </div>
-                                    
-                                    Slide 3
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/03.jpg" class="ls-bg" alt="" /> </div>
-									
-									Slide 4
-									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/01.jpg" class="ls-bg" alt="" /> </div>
-									
-									Slide 5
-									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/17.jpg" class="ls-bg" alt="" /> </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
-							  <img src="admin/property/13.jpg" alt="Rental Service Image" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-
-                                <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="contact.jsp">Rental Service</a></h5>
-                                <p>The convenience with our rental services! Whether equipment, vehicles, or event essentials,
-                                 we provide hassle-free rentals tailored to your needs. Enjoy flexibility, reliability, and top-notch quality.
-                                  Elevate your experience inventory and customer-centric approach.
-                                 satisfaction is our priority, making every rental a seamless experience.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
-								<!-- <div class="row">
-                            <div class="col-md-12">
-                               <div id="property-listing" style="width:1200px; height:100px; margin:30px auto 50px;">
-                                    Slide 1
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/03.jpg" class="ls-bg" alt="" /> </div>
-                                    
-                                    Slide 2
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/12.jpg" class="ls-bg" alt="" /> </div>
-                                    
-                                    Slide 3
-                                    <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/14.jpg" class="ls-bg" alt="" /> </div>
-									
-									Slide 4
-									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/01.jpg" class="ls-bg" alt="" /> </div>
-									
-									Slide 5
-									<div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/19.jpg" class="ls-bg" alt="" /> </div>
-                                </div>
-                            </div>
-                        </div> -->
                                 <div style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
 								  <img src="admin/property/16.jpg" alt="Property Listing Image" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 50%;">
 								</div>
-
                                 <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="propertyview.jsp">Property Listing</a></h5>
                                 <p>Discover your ideal home through our property listings. We provide a diverse selection of residences, 
                                 from cozy apartments to spacious homes. Our user-friendly platform ensures a seamless search experience,
                                  offering detailed information and images to help you find the perfect property. 
                                  Your dream home is just a click away!
+                                   </p>
+                            </div>
+                        </div>
+   
+                        <div class="col-lg-3 col-md-6">
+                            <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
+                                <div style="width: 200px; height: 200px; overflow: hidden; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+								  <img src="admin/property/13.jpg" alt="Property Listing Image" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: cover; border-radius: 50%;">
+								</div>
+                                <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="propertyview.jsp">Rental Service</a></h5>
+                                <p>The convenience with our rental services! Whether equipment, vehicles, or event essentials,
+                                 we provide hassle-free rentals tailored to your needs. Enjoy flexibility, reliability, and top-notch quality.
+                                  Elevate your experience inventory and customer-centric approach.
+                                 satisfaction is our priority, making every rental a seamless experience.
                                    </p>
                             </div>
                         </div>
@@ -286,38 +235,98 @@ if (roleIDString == null) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="text-secondary double-down-line text-center mb-4">Recent Property</h2>
+                        <h2 class="text-secondary double-down-line text-center mb-4">Most Viewed Property</h2>
                     </div>
                    
-                    <div class="col-md-12">
-                        <div class="tab-content mt-4" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home">
-                                <div class="row">
-							
-                                    <div class="col-md-6 col-lg-4">
-                                        <div class="featured-thumb hover-zoomer mb-4">
-                                            <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/20.jpg" alt="pimage">
-                                                <div class="featured bg-primary text-white">Flat</div>
-                                                <div class="sale bg-secondary text-white text-capitalize">For Kumar</div>
-                                                <div class="price text-primary"><b>$<?jsp echo $row['13'];?> </b><span class="text-Black"><?jsp echo $row['12'];?> Sqft 1200</span></div>
-                                            </div>
-                                            <div class="featured-thumb-data shadow-one">
-                                                <div class="p-3">
-                                                    <h5 class="text-secondary hover-text-primary mb-2 text-capitalize"><a href="propertydetail.jsp?pid=<?jsp echo $row['0'];?>"><?jsp echo $row['1'];?></a></h5>
-                                                    <span class="location text-capitalize"><i class="fas fa-map-marker-alt text-primary"></i> <?jsp echo $row['14'];?></span> </div>
-                                                
-                                               
-                                            </div>
-                                        </div>
+                              <div class="content container-fluid">
+               
+                
+                <form action="" method="post">
+             
+
+            </form>            
+                <div class="row">
+                    <% try {
+
+                        List<AddProperty> resultSet;
+
+                        
+
+                        
+                        PropertyDAO propertyDao = new PropertyDAO();
+                        AddPropertyServiceImpl searchProperty=new AddPropertyServiceImpl();
+                       
+                            resultSet = AddPropertyServiceImpl.getMostViewProperties();
+                        
+                            
+                        
+                        int count = 0; // Counter to track the number of records
+                        for (int i = 0; i < resultSet.size(); i++) {
+                            AddProperty property = resultSet.get(i);
+                            if (count > 0 && count % 4 == 0) {
+                    %>
+                </div>	
+                <!-- End previous row and start a new row -->
+                <div class="row">
+                    <% } %>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                
+                                <div class="property-card">                                    
+                              
+              <% System.out.println("Image URL for Property " + property.getPropertyId() + ": " + property.getImageUrl(request)); %>
+              			<div class="image-container">
+              			<a href="specificpropertyview.jsp?propertyId=<%= property.getPropertyId() %>">
+	                        <img src="<%= property.getImageUrl(request) %>" alt="Property Image" class="img-fluid">
+	                        </a>
+					    </div>      
+                       <table class="table" style="width: 50%; max-width: 100px; margin-bottom: 5px;">
+						    
+						    <tr><td style="padding: 5px; color:blue; font-weight: bold; width:100px;"><%= property.getPname() %></td></tr>
+						    <tr><td style="padding: 5px; color:blue; font-weight: bold; width:100px;"><span style="color:blue;"><i class="fas fa-map-marker-alt fa-xs pe-2"></i><%= property.getCity() %></span></td></tr>
+						    
+						    
+						    <tr><td style="padding: 5px;"><strong>Dimensions:</strong></td><td><%= property.getDimensions() %></td></tr>
+						    
+						    
+						    
+						    
+						    <tr><td style="padding: 5px;"><strong>Price:</strong></td><td><%= property.getPrice() %></td></tr>
+						    
+						                    	
+						</table>
+                      <div>                        
+                                                        
                                     </div>
-								  </div>
-                            </div>
-                        </div>
-                    </div>
+                                </div>
+                            </div> <!-- end card body-->
+                        </div> <!-- end card -->
+                    </div><!-- end col-->
+                    <% count++;
+                        } // End of the for loop
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    %>
+                </div>
+                <!-- end row-->
+            </div>
                 </div>
             </div>
         </div>
 		<!--	Recent Properties  -->
+		
+		<div class="col-12 text-center">
+
+<a class="btn btn-link" href="propertyview.jsp" style="color: blue;">
+<i class="fas fa-plus">
+</i>
+View All Listings
+</a>
+ <br>
+ <br>
+</div>
         
         <!--	Why Choose Us -->
        
@@ -416,7 +425,7 @@ if (roleIDString == null) {
                     <div class="count wow text-center mb-sm-50" data-wow-duration="300ms">
                         <i class="flaticon-house flat-large text-white" aria-hidden="true"></i>
                         <div class="property-image-container">
-                            <img src="images/1st.png" alt="Selling Service Image" class="img-fluid property-image">
+                        <a href="propertyview.jsp"><img src="images/1st.png" alt="Selling Service Image" class="img-fluid property-image"></a>
                         </div>
                         <div class="text-black h4">Property Available</div>
                     </div>
@@ -425,7 +434,7 @@ if (roleIDString == null) {
                     <div class="count wow text-center mb-sm-50" data-wow-duration="300ms">
                         <i class="flaticon-house flat-large text-white" aria-hidden="true"></i>
                         <div class="property-image-container">
-                            <img src="images/home5.jpg" alt="Rental Service Image" class="img-fluid property-image">
+                            <a href="propertyview.jsp"><img src="images/home5.jpg" alt="Rental Service Image" class="img-fluid property-image"></a>
                         </div>
                         <div class="text-orange h4">Sale Property Available</div>
                     </div>
@@ -434,7 +443,7 @@ if (roleIDString == null) {
                     <div class="count wow text-center mb-sm-50" data-wow-duration="300ms">
                         <i class="flaticon-house flat-large text-white" aria-hidden="true"></i>
                         <div class="property-image-container">
-                  <img src="images/video.jpg" alt="Rental Service Image" class="img-fluid property-image" style="max-width: 80%; height: auto;">
+                  <a href="propertyview.jsp"><img src="images/video.jpg" alt="Rental Service Image" class="img-fluid property-image" style="max-width: 80%; height: auto;"></a>
 
                         </div>
                         <div class="text-orange h4">Rent Property Available</div>

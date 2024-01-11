@@ -66,16 +66,12 @@
                 <div class="sidebar">
                 
                     <ul>
-                        <li class="submenu">
-                            <a href="#"><i class="la la-dashboard"></i>
+                        <li class="">
+                            <a href="index.jsp"><i class="la la-dashboard"></i>
                                 <span> Dashboard</span>
                                 <span class="menu-arrow"></span>
                             </a>
-                            <ul style="display: none;">
-                                <li><a href="index.jsp">Admin Dashboard</a></li>
-                                 <li><a href="index.jsp">User Dashboard</a></li>
-                               
-                            </ul>
+                            
                         </li>
                         <li class="menu-title">
                             <span>Main</span>

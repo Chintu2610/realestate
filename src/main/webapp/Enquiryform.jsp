@@ -92,7 +92,7 @@ if (roleIDString == null) {
 <div class="col text-center">
     <div class="jumbotron">
         <h1 class="display-4">Properties coming soon</h1>
-        <p class="lead">After properties are listed, they will be available at the moment.</p>
+        <p class="lead">After properties are listed, they will be available.</p>
         <hr class="my-4">
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="index.jsp" role="button">Explore other options</a>

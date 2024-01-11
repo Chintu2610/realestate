@@ -101,7 +101,7 @@ if (roleIDString == null) {
                 <div class="page-header">
                     <div class="row">
                        <div class="col">
-							    <h3 class="page-title" style="font-size: 30px;">Property View and Compare</h3>
+							    <h3 class="page-title" style="font-size: 30px;">Property View</h3>
 							    <ul class="breadcrumb">
 							        <li class="breadcrumb-item"><a href="index.jsp">Index</a></li>
 							        <li class="breadcrumb-item active">Property</li>
@@ -113,77 +113,45 @@ if (roleIDString == null) {
                 
                 <form action="" method="post">
              
-            <div class="row filter-row">
-                <div class="col-sm-6 col-md-3">
-                    <div class="form-group form-focus">
-                        <label for="price">Price:</label>
-                        <input type="text" name="price" id="employee">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="form-group form-focus select-focus">
-                        <label for="date_of_list">Date of list:</label>
-                        <input type="date" name="date_of_list" id="start_date">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <input type="submit" value="Search">
-                </div>
-            </div>
+ 
             </form>            
                 <div class="row">
                     <% try {
-                        int start = 0;
-                        int limit = 25;
-                        String price = request.getParameter("price");
-                        String listed_date = request.getParameter("date_of_list");
-
-                        List<AddProperty> resultSet;
-
-                        String whereClause = "";
-
-                        if (price != null && !price.isEmpty()) {
-                            whereClause = "price = '" + price + "'";
-                        }
-
-                        if (listed_date != null && !listed_date.isEmpty()) {
-                            if (!whereClause.isEmpty()) {
-                                whereClause += " AND ";
-                            }
-                            whereClause += "listed_date = '" + listed_date + "'";
-                        }
+                    	String propertyId = request.getParameter("propertyId");                       
                         PropertyDAO propertyDao = new PropertyDAO();
-                        AddPropertyServiceImpl searchProperty=new AddPropertyServiceImpl();
-                        if (!whereClause.isEmpty()) {
-                            resultSet = AddPropertyServiceImpl.getFilteredProperties(whereClause,start,limit);
-                        } else {
-                            resultSet = propertyDao.getAllProperties();
-                        }
-                        int count = 0; // Counter to track the number of records
-                        for (int i = 0; i < resultSet.size(); i++) {
-                            AddProperty property = resultSet.get(i);
-                            if (count > 0 && count % 4 == 0) {
+                        AddPropertyServiceImpl searchProperty=new AddPropertyServiceImpl();                        
+                        AddProperty   property = propertyDao.getPropertyById(propertyId);                                                                                             
+                            if (!property.equals(null)) {
                     %>
                 </div>	
                 <!-- End previous row and start a new row -->
-                <div class="row">
-                    <% } %>
-                    <div class="col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="header-title mt-0 mb-4">Property Details</h4>
-                                <div class="property-card">                                    
-               <%-- <img src="<%= property.getImageUrl(request) %>" alt="Property Image" class="img-fluid"> --%>               
-              <% System.out.println("Image URL for Property " + property.getPropertyId() + ": " + property.getImageUrl(request)); %>
-              			<div class="image-container">
-              			<a href="specificpropertyview.jsp?propertyId=<%= property.getPropertyId() %>">
-	                        <img src="<%= property.getImageUrl(request) %>" alt="Property Image" class="img-fluid">
-	                        <% if (property.getSold_status() != null && property.getSold_status().equals("completed")) { %>
-							    <div class="sold-overlay">Sold</div>
-						    <% } %></a>
-					    </div>      
-                       <table class="table" style="width: 50%; max-width: 100px; margin-bottom: 5px;">
-						    <tr><td style="padding: 5px;"><strong>P ID:</strong></td><td><%= property.getPropertyId() %></td></tr>
+                 <div class="row">
+<%
+                }
+%>
+					        <div class="col-md-5">
+					        <h1 style="color:blue;"><%= property.getPname() %></h1>
+					        <span style="color:blue;"><i class="fas fa-map-marker-alt fa-xs pe-2"></i><%= property.getCity() %></span>
+						
+					            <div class="card">
+					                <div class="card-body">
+					                    <h4 class="header-title mt-0 mb-4"><p><strong>Status:</strong> <%= property.getStatus() %></p></h4>
+					                    <div class="property-card">
+					                        <% System.out.println("Image URL for Property " + property.getPropertyId() + ": " + property.getImageUrl(request)); %>
+					                        <img src="<%= property.getImageUrl(request) %>" alt="Property Image" class="img-fluid">
+					                        <%-- <p><strong>P ID:</strong> <%= property.getPropertyId() %></p> --%>
+					                        <p><strong>Type:</strong> <%= property.getType() %></p>
+					                        <p><strong>Mobile:</strong> <%= property.getPmobile()%></p>
+					                        <p><strong>Dimensions:</strong> <%= property.getDimensions()%></p>
+					                         <p><strong>Highlights:</strong> <%= property.getHighlights()%></p>
+					                          <p><strong>Amenities:</strong> <%= property.getAmenities()%></p>
+					                          <p><strong>Price:</strong> <%= property.getPrice()%></p>
+					                          <p><strong>Listed Date:</strong> <%= property.getListedDate()%></p>
+					                          <p><strong>Is Highlighted:</strong> <%= property.getIsHighlighted().equals("1") ? "Yes" : "No" %></p>
+					                          <% if(property.getSold_status() != null && !property.getSold_status().equals(null)) { %>
+					                          <p><strong>Sold Status:</strong> <%= property.getSold_status()%></p>
+						       <% } %>
+					                       <%--  <tr><td style="padding: 5px;"><strong>P ID:</strong></td><td><%= property.getPropertyId() %></td></tr>
 						    <tr><td style="padding: 5px;"><strong>Name:</strong></td><td><%= property.getPname() %></td></tr>
 						    <tr><td style="padding: 5px;"><strong>Mobile:</strong></td><td><%= property.getPmobile() %></td></tr>
 						    <tr><td style="padding: 5px;"><strong>Status:</strong></td><td><%= property.getStatus() %></td></tr>
@@ -198,31 +166,56 @@ if (roleIDString == null) {
 						    <tr><td style="padding: 5px;"><strong>Is Highlighted:</strong></td><td><%= property.getIsHighlighted().equals("1") ? "Yes" : "No" %></td></tr>
 						    <% if(property.getSold_status() != null && !property.getSold_status().equals(null)) { %>
 						    <tr><td style="padding: 5px;"><strong>Sold Status:</strong></td><td><%= property.getSold_status() %></td></tr>
-					         <% } %>               	
-						</table>
-                      <div>                        
-                     <div>
-						    <input type="checkbox" id="property_<%= property.getPropertyId() %>" name="selectedProperties" value="<%= property.getPropertyId() %>">
-						    <label for="property_<%= property.getPropertyId() %>">Select Property <%= property.getPropertyId() %></label>
-						</div>                                    
-                                    </div>
-                                </div>
-                            </div> <!-- end card body-->
-                        </div> <!-- end card -->
-                    </div><!-- end col-->
-                    <% count++;
-                        } // End of the for loop
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    %>
-                </div>
+					         <% } %>  --%>
+					                        <!-- Move the form inside the loop -->
+					                       
+					                     </div>
+					                </div>
+					            </div>
+					        </div>
+					        <div style="margin-top:75px;">
+                        <form action="./AddEnquiryServlet" method="post">
+                      
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name*">
+                            </div> 
+                            <div class="form-group">
+								    <input type="text" name="email" class="form-control" style="width: 300px; height: 40px;" placeholder="Enter Email">
+								</div>
+                            <div class="form-group">
+                                <input type="text" name="phone" class="form-control" placeholder="Enter Phone">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Budget" class="form-control" placeholder="Budget">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" placeholder="Enter Message"></textarea>
+                            </div>
+                             <div class="form-group" style="display: none;">
+							    <input type="text" name="id" name="propertyId" value="<%= property.getPropertyId() %>" class="form-control custom-input" style="width: 300px;">
+							</div>
+                            <div class="form-group mt-4">
+                                <button type="submit" class="btn btn-primary w-100">Submit Inquiry</button>
+                            </div>
+                            
+                        </form>
+                        </div>
+                        
+<%
+                
+            
+        }
+     catch (Exception e) {
+        e.printStackTrace();
+    }
+%>
+</div>
                 <!-- end row-->
+               
+					</div>
             </div>
-                       <button onclick="compareSelectedProperties()" style="display: block; margin: auto; background-color: #066d6b; margin-bottom: 10px; padding: 10px; border: 2px solid #ccc; border-radius: 5px;">Compare</button>
-
         </div>
-    </div>
+    
     <%
     } // End of the if-else block
 %>

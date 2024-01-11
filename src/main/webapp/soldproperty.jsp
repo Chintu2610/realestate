@@ -105,12 +105,8 @@ if (roleIDString == null) {
            <div style="height: 100px; width:1200px; padding: 0px; margin-left:0px; margin-top:20px;">
     				<!-- Your footer content goes here -->
      				<jsp:include page="footer.jsp" />
-				</div>
-            
-		   
-		    
-        </div>
-       
+				</div>            		   		    
+        </div>       
     </div>
 
     <!-- Submit property -->

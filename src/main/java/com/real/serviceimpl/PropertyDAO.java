@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,8 +66,19 @@ public class PropertyDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
+
+		Connection connection1 = null;
 		try {
 			connection = DBUtil.provideConnection();
+			connection1 = DBUtil.provideConnection();
+			Statement st = connection1.createStatement();
+			int k = st.executeUpdate(
+					"update property set view_count=view_count+1 where property_id = " + propertyId + "");
+			if (k > 0) {
+				System.out.println("view_count increased successfully");
+			} else {
+				System.out.println(" cant view_count increased view_count");
+			}
 			String query = "SELECT property_id, pname,pmobile,status, type, age, dimensions,"
 					+ " city, highlights, amenities, price, listed_date, "
 					+ "is_highlighted FROM property WHERE property_id = ?";

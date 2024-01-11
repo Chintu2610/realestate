@@ -21,7 +21,7 @@ public class ResetPasswordServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String email = request.getParameter("email");
-		String OldPassword = request.getParameter("OLDpassword");
+
 		String newPassword = request.getParameter("newpassword");
 		String confirmPassword = request.getParameter("confirmpassword");
 		String error = "";
@@ -31,9 +31,8 @@ public class ResetPasswordServlet extends HttpServlet {
 		PreparedStatement ps1 = null;
 		String status1 = "Updating Goals Failed!";
 		try {
-			ps1 = con1.prepareStatement("select * from user where Email=? and Password=?");
+			ps1 = con1.prepareStatement("select * from user where Email=? ");
 			ps1.setString(1, email);
-			ps1.setString(2, OldPassword);
 			ResultSet rs = ps1.executeQuery();
 			if (rs.next()) {
 				isVerified = true;
