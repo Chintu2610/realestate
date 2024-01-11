@@ -91,7 +91,6 @@
                     </div>
                 </div>
                 <!-- /Page Header -->
-
                 <!-- Comparison Tables -->
                 <div class="row">
 						    <!-- Loop through selected properties and display details -->
@@ -99,8 +98,9 @@
 						        <div class="col-md-3">
 						            <div class="card">
 						                <!-- Inside the loop where you are displaying properties -->
+						                <a href="specificpropertyview.jsp?propertyId=<%= property.getPropertyId() %>">
                            <img src="<%= property.getImageUrl(request) %>" alt="Property Image" class="img-fluid">
-
+                           </a>
 						                <div class="card-body">
 						                    <table class="table comparison-table">
 						                        <tr>

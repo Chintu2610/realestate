@@ -161,6 +161,8 @@ if (roleIDString == null) {
 										<option value="house">House</option>
 										<option value="villa">Villa</option>
 										<option value="office">Office</option>
+										<option value="farmLands">Farm Lands</option>
+										<option value="agricultureLands">Agriculture Lands</option>
 									</select>
 								</div>
 									<div class="col-sm-6 col-md-3">

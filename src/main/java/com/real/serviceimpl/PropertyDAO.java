@@ -22,7 +22,56 @@ public class PropertyDAO {
 
 		try {
 			connection = DBUtil.provideConnection();
-			String query = "SELECT property_id, pname, pmobile, status, type, age, dimensions, city, highlights, amenities, price, listed_date, is_highlighted, sold_status FROM property";
+			String query = "SELECT property_id, pname, pmobile, status, type, age, dimensions, city, highlights, amenities, price, listed_date, is_highlighted, sold_status FROM property where sold_status != 'completed' or sold_status IS NULL";
+
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				AddProperty property = new AddProperty();
+				property.setPropertyId(resultSet.getString("property_id"));
+				property.setPname(resultSet.getString("pname"));
+				property.setPmobile(resultSet.getString("pmobile"));
+				property.setStatus(resultSet.getString("status"));
+				property.setType(resultSet.getString("type"));
+				property.setAge(resultSet.getString("age"));
+				property.setDimensions(resultSet.getString("dimensions"));
+				property.setCity(resultSet.getString("city"));
+				property.setHighlights(resultSet.getString("highlights"));
+				property.setAmenities(resultSet.getString("amenities"));
+				property.setPrice(resultSet.getString("price"));
+				property.setListedDate(resultSet.getString("listed_date"));
+				property.setIsHighlighted(resultSet.getString("is_highlighted"));
+				property.setSold_status(resultSet.getString("sold_status"));
+				// Check for null in sold_status before setting it in your AddProperty ob
+				allProperties.add(property);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return allProperties;
+	}
+
+	public List<AddProperty> adminGetAllProperties() {
+		List<AddProperty> allProperties = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DBUtil.provideConnection();
+			String query = "SELECT property_id, pname, pmobile, status, type, age, dimensions, city, highlights, amenities, price, listed_date, is_highlighted, sold_status FROM property ";
+
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {

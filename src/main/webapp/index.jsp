@@ -119,6 +119,8 @@ if (roleIDString == null) {
 												<option value="house">House</option>
 												<option value="villa">Villa</option>
 												<option value="office">Office</option>
+												<option value="farmLands">Farm Lands</option>
+												<option value="agricultureLands">Agriculture Lands</option>
                                             </select>
                                         </div>
                                     </div>
@@ -434,7 +436,7 @@ View All Listings
                     <div class="count wow text-center mb-sm-50" data-wow-duration="300ms">
                         <i class="flaticon-house flat-large text-white" aria-hidden="true"></i>
                         <div class="property-image-container">
-                            <a href="propertyview.jsp"><img src="images/home5.jpg" alt="Rental Service Image" class="img-fluid property-image"></a>
+                            <a href="saleproperty.jsp"><img src="images/home5.jpg" alt="Rental Service Image" class="img-fluid property-image"></a>
                         </div>
                         <div class="text-orange h4">Sale Property Available</div>
                     </div>
@@ -443,7 +445,7 @@ View All Listings
                     <div class="count wow text-center mb-sm-50" data-wow-duration="300ms">
                         <i class="flaticon-house flat-large text-white" aria-hidden="true"></i>
                         <div class="property-image-container">
-                  <a href="propertyview.jsp"><img src="images/video.jpg" alt="Rental Service Image" class="img-fluid property-image" style="max-width: 80%; height: auto;"></a>
+                  <a href="rentProperty.jsp"><img src="images/video.jpg" alt="Rental Service Image" class="img-fluid property-image" style="max-width: 80%; height: auto;"></a>
 
                         </div>
                         <div class="text-orange h4">Rent Property Available</div>

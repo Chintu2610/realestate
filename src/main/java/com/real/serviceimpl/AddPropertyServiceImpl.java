@@ -24,18 +24,73 @@ public class AddPropertyServiceImpl {
 			String query;
 			if (whereClause != null && !whereClause.isEmpty()) {
 				query = "SELECT property_id, pname, pmobile, status, type, age, dimensions, city, highlights, amenities, price, listed_date, is_highlighted, image ,sold_status"
-						+ " FROM property WHERE " + whereClause + " LIMIT ?, ?;";
+						+ " FROM property WHERE sold_status != 'completed' or sold_status IS NULL " + whereClause
+						+ " LIMIT ?, ?;";
 			} else {
 				query = "SELECT property_id, pname, pmobile, status, type, age, dimensions, city, highlights, amenities, price, listed_date, is_highlighted, image ,sold_status"
-						+ " FROM property LIMIT ?, ?;";
+						+ " FROM property where sold_status != 'completed' or sold_status IS NULL LIMIT ?, ?;";
 			}
-
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, start);
 			preparedStatement.setInt(2, limit);
-
 			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				AddProperty property = new AddProperty();
+				property.setPropertyId(resultSet.getString("property_id"));
+				property.setPname(resultSet.getString("pname"));
+				property.setPmobile(resultSet.getString("pmobile"));
+				property.setStatus(resultSet.getString("status"));
+				property.setType(resultSet.getString("type"));
+				property.setAge(resultSet.getString("age"));
+				property.setDimensions(resultSet.getString("dimensions"));
+				property.setCity(resultSet.getString("city"));
+				property.setHighlights(resultSet.getString("highlights"));
+				property.setAmenities(resultSet.getString("amenities"));
+				property.setPrice(resultSet.getString("price"));
+				property.setListedDate(resultSet.getString("listed_date"));
+				property.setIsHighlighted(resultSet.getString("is_highlighted"));
+				property.setImage(resultSet.getString("image"));
+				property.setSold_status(resultSet.getString("sold_status"));
+				filteredProperties.add(property);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
+		return filteredProperties;
+	}
+
+	public List<AddProperty> adminGetFilteredProperties(String whereClause, int start, int limit) {
+		List<AddProperty> filteredProperties = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = DBUtil.provideConnection();
+			String query;
+			if (whereClause != null && !whereClause.isEmpty()) {
+				query = "SELECT property_id, pname, pmobile, status, type, age, dimensions, city, highlights, amenities, price, listed_date, is_highlighted, image ,sold_status"
+						+ " FROM property  " + whereClause + " LIMIT ?, ?;";
+			} else {
+				query = "SELECT property_id, pname, pmobile, status, type, age, dimensions, city, highlights, amenities, price, listed_date, is_highlighted, image ,sold_status"
+						+ " FROM property  LIMIT ?, ?;";
+			}
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, start);
+			preparedStatement.setInt(2, limit);
+			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				AddProperty property = new AddProperty();
 				property.setPropertyId(resultSet.getString("property_id"));
